@@ -155,7 +155,7 @@ export default function Index() {
                 <div className="right">
                 <div className="info">
                     <h3>Get started in seconds</h3>
-                    <p>Whether you’re a beginner or an expert, angelx makes it easy to get started without any professional knowledge.</p>
+                    <p>Whether you are a beginner or an expert, angelx allows you to get started free from professional knowledge.</p>
                 </div>
                 </div>
                 </div>
@@ -175,7 +175,7 @@ export default function Index() {
                 <div className="right">
                 <div className="info">
                     <h3>Boost your yields</h3>
-                    <p>Every transaction with angelx unlocks the potential for huge profits, enabling every user to thrive as the platform grows.</p>
+                    <p>Each one of angelx transaction can generate big profits that anyone can be gained as the platform blooms.</p>
                 </div>
                 </div>
                 </div>
@@ -195,7 +195,7 @@ export default function Index() {
                 <div className="right">
                 <div className="info">
                     <h3>Acess expert knowledge</h3>
-                    <p>Ensure every user on angelx can earn profits on the platform, regardless of how much money they have.</p>
+                    <p>Train every single user on angelx to make profits from the platform regardless of their money.</p>
                 </div>
                 </div>
                 </div>
