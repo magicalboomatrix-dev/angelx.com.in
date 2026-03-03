@@ -13,7 +13,7 @@ export const metadata = {
     "angelx exchange",
   ],
   alternates: {
-    canonical: "https://angelx.com.in/exchange",
+    canonical: "https://www.angelx.com.in/exchange",
   },
   robots: {
     index: true,
@@ -47,12 +47,12 @@ export const metadata = {
     title: "AngelX Official → India’s #1 Trusted USDT Exchange Platform",
     description:
       "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
-    url: "https://angelx.com.in/exchange",
+    url: "https://www.angelx.com.in/exchange",
     siteName: "AngelX",
     locale: "en_IN",
     images: [
       {
-        url: "https://angelx.com.in/images/logo-icon.png",
+        url: "https://www.angelx.com.in/images/logo-icon.png",
         width: 1200,
         height: 630,
         alt: "AngelX USDT Exchange Platform",
@@ -65,7 +65,7 @@ export const metadata = {
     description:
       "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
     site: "@AngelX",
-    images: ["https://angelx.com.in/images/logo-icon.png"],
+    images: ["https://www.angelx.com.in/images/logo-icon.png"],
   },
 };
 
