@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Welcome to AngelX — India’s #1 Trusted USDT Exchange Platform",
+  title: "AngelX Official → India’s #1 Trusted USDT Exchange Platform",
   description:
-             "Exchange USDT for INR instantly on AngelX—high rates, fast processing, immediate payouts, strong security, reliable support, and easy crypto selling for seamless trades",
+             "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
   keywords: [
     "angelx usdt price",
-    "angelx usdt price",
+    "angelx usdt",
     "angelx crypto",
     "angelx usdt sell",
     "angelx login",
@@ -13,7 +13,7 @@ export const metadata = {
     "angelx exchange",
   ],
   alternates: {
-    canonical: "https://www.angelx.ind.in/exchange",
+    canonical: "https://angelx.com.in/exchange",
   },
   robots: {
     index: true,
@@ -44,15 +44,15 @@ export const metadata = {
   publisher: "AngelX",
   openGraph: {
     type: "website",
-    title: "Welcome to AngelX — India’s #1 Trusted USDT Exchange Platform",
+    title: "AngelX Official → India’s #1 Trusted USDT Exchange Platform",
     description:
-      "Exchange USDT for INR instantly on AngelX—high rates, fast processing, immediate payouts, strong security, reliable support, and easy crypto selling for seamless trades.",
-    url: "https://www.angelx.ind.in/exchange",
+      "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
+    url: "https://angelx.com.in/exchange",
     siteName: "AngelX",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.angelx.ind.in/images/og-image.png",
+        url: "https://angelx.com.in/images/logo-icon.png",
         width: 1200,
         height: 630,
         alt: "AngelX USDT Exchange Platform",
@@ -61,11 +61,11 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Welcome to AngelX — India’s #1 Trusted USDT Exchange Platform",
+    title: "AngelX Official → India’s #1 Trusted USDT Exchange Platform",
     description:
-      "Exchange USDT for INR instantly on AngelX—high rates, fast processing, immediate payouts, strong security, reliable support, and easy crypto selling for seamless trades.",
+      "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
     site: "@AngelX",
-    images: ["https://www.angelx.ind.in/images/og-image.png"],
+    images: ["https://angelx.com.in/images/logo-icon.png"],
   },
 };
 
