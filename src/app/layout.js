@@ -3,7 +3,7 @@ import Script from "next/script";
 import LayoutClient from "./LayoutClient";
 
 export const metadata = {
-  title: "AngelX Official → India’s #1 Trusted USDT Exchange Platform",
+  title: "AngelX Official → Best USDT-to-INR (Crypto) Exchange Platform",
   description:
     "Log in to AngelX for instant USDT-to-INR conversions at the best market rates. Fast processing, safe payouts, reliable support—quickly access your account and sell crypto easily.",
   keywords: [
@@ -98,9 +98,9 @@ export default function Layout({ children }) {
         <link rel="stylesheet" href="/css/style.css" type="text/css" />
     
         <meta name="google-site-verification" content="jN9KYRmsTeSoX0Jz2UVfis9kotpOcqf6iYkhLnsh6y8" />
-        {/* Google Analytics (G-ZZFB2YV2JH) */}
+        {/* Google Analytics (G-142KL2HJJS) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZZFB2YV2JH"
+          src="https://www.googletagmanager.com/gtag/js?id=G-142KL2HJJS"
           strategy="afterInteractive"
         />
         <Script id="ga-main" strategy="afterInteractive">
@@ -108,7 +108,7 @@ export default function Layout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-ZZFB2YV2JH');
+            gtag('config', 'G-142KL2HJJS');
           `}
         </Script>
 
