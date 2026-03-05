@@ -181,6 +181,73 @@ export default function Layout({ children }) {
             }
           `}
         </Script>
+
+          <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is AngelX and how does it work for USDT to INR exchange?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AngelX is a trusted Singapore-based crypto exchange app founded in 2021, specializing in instant USDT to INR conversions without KYC. Download the AngelX Apk, sign in with your mobile number, deposit USDT via TRC20/BEP20/ERC20, and get INR payouts to any Indian bank in 30 minutes."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I sell USDT for INR on AngelX without KYC?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, AngelX offers zero KYC for USDT to INR exchanges—no PAN, Aadhaar, or ID needed. Enjoy full anonymity while selling USDT at premium rates higher than market USD/INR, with fast deposits and direct bank transfers."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the best USDT rates on AngelX?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AngelX provides premium USDT rates above market levels for maximum INR payouts. Check live, transparent USDT pricing in the app, sourced from Binance and WazirX, with real-time data for TRC20, BEP20, and ERC20 networks—no hidden fees."
+    }
+  },{
+    "@type": "Question",
+    "name": "How long does it take to deposit USDT and withdraw INR on AngelX?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "USDT wallet (TRC20, BEP20, ERC20) deposits are confirmed in 1-2 minutes. INR withdrawals to your Indian bank account after your sell request land in around 30 minutes through IMPS or RTGS, much faster than traditional platforms."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is AngelX Apk safe and free to download?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Certainly, the AngelX Apk is 100% free and safe with auto-update. Since 2021, thousands of crypto users have relied upon it for some anonymous USDT to INR swaps and real-time portfolio tracking around the clock- without charges or risking privacy."
+    }
+  },{
+    "@type": "Question",
+    "name": "Which bank accounts can I link for AngelX INR payouts?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Link any Indian bank account (yours or even rental) on AngelX—no verification required. Get swift, risk-free INR deposits via direct transfers, supporting all major banks for hassle-free USDT selling."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does AngelX support all USDT networks for deposits?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, AngelX handles TRC20, BEP20, ERC20, and more for seamless USDT deposits from any wallet. Approvals are instant (1-2 minutes), making it the best crypto exchange for Indians converting stablecoins to INR."
+    }
+  },{
+    "@type": "Question",
+    "name": "How can I get 24/7 support for AngelX USDT to INR issues?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AngelX provides 24/7 live chat and phone support from actual agents. View transactions within the app, download statements in seconds, or call us 24/7 for assistance with rates, deposits and pay outs."
+    }
+  }]
+}`
+          }}
+        />
       </body>
     </html>
   );
