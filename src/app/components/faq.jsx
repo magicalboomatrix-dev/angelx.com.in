@@ -33,7 +33,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                  AngelX is a trusted Singapore-based crypto exchange app founded in 2021, specializing in instant USDT to INR conversions without KYC. Download the AngelX Apk, sign in with your mobile number, deposit USDT via TRC20/BEP20/ERC20, and get INR payouts to any Indian bank in 30 minutes.
+                  AngelX is a trusted India-based crypto exchange app founded in 2021, specializing in instant USDT to INR conversions without KYC. Download the AngelX Apk, sign in with your mobile number, deposit USDT via TRC20/BEP20/ERC20, and get INR payouts to any Indian bank in 30 minutes.
                 </div>
               </div>
             </div>
