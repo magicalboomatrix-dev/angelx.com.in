@@ -150,6 +150,24 @@ export default function Layout({ children }) {
             })
           }}
         />
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: `
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "AngelX",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "17866",
+              "reviewCount": "17866"
+            }
+          }
+          `,
+        }}
+      />  
       </head>
       <body>
         <LayoutClient>{children}</LayoutClient>
@@ -193,14 +211,14 @@ export default function Layout({ children }) {
     "name": "What is AngelX and how does it work for USDT to INR exchange?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "AngelX is a trusted Singapore-based crypto exchange app founded in 2021, specializing in instant USDT to INR conversions without KYC. Download the AngelX Apk, sign in with your mobile number, deposit USDT via TRC20/BEP20/ERC20, and get INR payouts to any Indian bank in 30 minutes."
+      "text": "AngelX is a trusted India-based crypto exchange app founded in 2021, specializing in instant USDT to INR conversions without KYC. Download the AngelX Apk, sign in with your mobile number, deposit USDT via TRC20/BEP20/ERC20, and get INR payouts to any Indian bank in 30 minutes."
     }
   },{
     "@type": "Question",
     "name": "Can I sell USDT for INR on AngelX without KYC?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes, AngelX offers zero KYC for USDT to INR exchanges—no PAN, Aadhaar, or ID needed. Enjoy full anonymity while selling USDT at premium rates higher than market USD/INR, with fast deposits and direct bank transfers."
+      "text": "Right—AngelX does not perform KYC for any type of USDT-to-INR trade. No PAN, Aadhaar or documents needed."
     }
   },{
     "@type": "Question",
@@ -214,7 +232,7 @@ export default function Layout({ children }) {
     "name": "How long does it take to deposit USDT and withdraw INR on AngelX?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "USDT wallet (TRC20, BEP20, ERC20) deposits are confirmed in 1-2 minutes. INR withdrawals to your Indian bank account after your sell request land in around 30 minutes through IMPS or RTGS, much faster than traditional platforms."
+      "text": "Deposits into your USDT wallet (a TRC20, BEP20 or ERC20 one) are confirmed super quickly in only 1-2 minutes. Your sell order now or INR is credited to your Indian bank instantaneously in 30 min via IMPS or RTGS which are relatively faster than the most platforms."
     }
   },{
     "@type": "Question",
@@ -228,7 +246,7 @@ export default function Layout({ children }) {
     "name": "Which bank accounts can I link for AngelX INR payouts?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Link any Indian bank account (yours or even rental) on AngelX—no verification required. Get swift, risk-free INR deposits via direct transfers, supporting all major banks for hassle-free USDT selling."
+      "text": "Link any Indian bank account (yours or even rental) on AngelX—no verification required."
     }
   },{
     "@type": "Question",
@@ -242,12 +260,39 @@ export default function Layout({ children }) {
     "name": "How can I get 24/7 support for AngelX USDT to INR issues?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "AngelX provides 24/7 live chat and phone support from actual agents. View transactions within the app, download statements in seconds, or call us 24/7 for assistance with rates, deposits and pay outs."
+      "text": "AngelX offers round-the-clock live chat and phone support from real agents. Track transactions in-app, grab instant statements, or reach out anytime for help with rates, deposits, or withdrawals."
     }
   }]
 }`
           }}
         />
+
+<script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `
+            {
+              "@context": "https://schema.org/",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Instant USDT-to-INR Exchange",
+                  "item": "https://www.angelx.com.in/exchange"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Login to sell USDT",
+                  "item": "https://www.angelx.com.in/login"
+                }
+              ]
+            }
+            `,
+          }}
+        />
+          
       </body>
     </html>
   );
