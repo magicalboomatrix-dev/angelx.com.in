@@ -55,7 +55,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                  Yes, AngelX offers zero KYC for USDT to INR exchanges—no PAN, Aadhaar, or ID needed. Enjoy full anonymity while selling USDT at premium rates higher than market USD/INR, with fast deposits and direct bank transfers.
+                  Right—AngelX does not perform KYC for any type of USDT-to-INR trade. No PAN, Aadhaar or documents needed.
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ AngelX provides premium USDT rates above market levels for maximum INR payouts. 
                 }}
               >
                 <div className="answer">
-					USDT wallet (TRC20, BEP20, ERC20) deposits are confirmed in 1-2 minutes. INR withdrawals to your Indian bank account after your sell request land in around 30 minutes through IMPS or RTGS, much faster than traditional platforms.
+					Deposits into your USDT wallet (a TRC20, BEP20 or ERC20 one) are confirmed super quickly in only 1-2 minutes. Your sell order now or INR is credited to your Indian bank instantaneously in 30 min via IMPS or RTGS which are relatively faster than the most platforms.
                 </div>
               </div>
             </div>
@@ -143,8 +143,7 @@ AngelX provides premium USDT rates above market levels for maximum INR payouts. 
                 }}
               >
                 <div className="answer">
-                   Link any Indian bank account (yours or even rental) on AngelX—no verification required. Get swift, risk-free INR deposits via direct transfers, supporting all major banks for hassle-free USDT selling.
-
+                  Link any Indian bank account (yours or even rental) on AngelX—no verification required.
                 </div>
               </div>
             </div>
@@ -188,8 +187,7 @@ AngelX provides premium USDT rates above market levels for maximum INR payouts. 
                 }}
               >
                 <div className="answer">                  
-AngelX provides 24/7 live chat and phone support from actual agents. View transactions within the app, download statements in seconds, or call us 24/7 for assistance with rates, deposits and pay outs.
-
+AngelX offers round-the-clock live chat and phone support from real agents. Track transactions in-app, grab instant statements, or reach out anytime for help with rates, deposits, or withdrawals.
                 </div>
               </div>
             </div>
@@ -204,4 +202,3 @@ AngelX provides 24/7 live chat and phone support from actual agents. View transa
     </section>
   );
 }
-
