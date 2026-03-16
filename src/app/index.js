@@ -935,7 +935,7 @@ export default function Index() {
 		  <div className="section-title">
 			  <h2 className="title">Refer and Earn Crypto Rewards: Invite Friends, You Get Paid!</h2>
 			  <div className="image">
-				<img src="/images/Referal-Image1.png" className="image img-responsive" alt="Refer and Earn" />          
+				<img src="/images/Referal-Image1.png" className="image img-responsive" alt="AngelX Refer and Earn Rewards" />          
 			  </div>
 			  <p>
 				Sign up for our rewards program and start earning rewards to redeem today! How does it work, you ask? Simple — refer your friends to join our platform and grow together as they actively trade on the platform; reap rewards in return! Sign up now, don’t miss out on making some extra money with friends!
