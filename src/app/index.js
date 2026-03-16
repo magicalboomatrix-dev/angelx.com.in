@@ -853,8 +853,92 @@ export default function Index() {
 
 		</section> 
 
+	<section classname="section-4">
+		  <div classname="container">
+			<div className="section-title">
+			  <h4 classname="title">AngelX vs Other Exchange Platforms</h4>
+			  <p>
+				AngelX, a modern crypto exchange platform with USDT to INR conversions
+				as its primary operating domain offering no KYC trading, quick payouts
+				and premium exchange rates tailored specifically for Indian users. It
+				stands out from mainstream exchanges with anonymity features and
+				simplicity. Here is a comparison table listing the key differences of
+				BlueBitcoin with popular alternatives like WazirX, CoinDCX and Binance.
+				​
+			  </p>
+			</div>
+			<div classname="table-responsive">
+			  <h2>
+				<b>Feature Comparison</b>
+			  </h2>
+			  <table classname="table">
+				<tbody>
+				  <tr>
+					<th>Feature</th>
+					<th>AngelX</th>
+					<th>WazirX</th>
+					<th>CoinDCX</th>
+					<th>Binance</th>
+				  </tr>
+				  <tr>
+					<td>KYC Requirement</td>
+					<td>None (zero KYC for all trades) </td>
+					<td>Mandatory for INR withdrawals</td>
+					<td>Mandatory for higher limits </td>
+					<td>Mandatory globally</td>
+				  </tr>
+				  <tr>
+					<td>USDT Networks</td>
+					<td>TRC20, BEP20, ERC20</td>
+					<td>TRC20, ERC20 mainly</td>
+					<td>Multiple including TRC20</td>
+					<td>All major networks</td>
+				  </tr>
+				  <tr>
+					<td>Transaction Speed</td>
+					<td>1-2 min deposits, swift</td>
+					<td>INR 10-30 min typical</td>
+					<td>5-15 min with KYC</td>
+					<td>Instant P2P, slower fiat</td>
+				  </tr>
+				  <tr>
+					<td>INR Payouts </td>
+					<td>Direct to any Indian bank</td>
+					<td>IMPS/NEFT, business hours</td>
+					<td>UPI/IMPS, verified banks only</td>
+					<td>P2P via third parties</td>
+				  </tr>
+				  <tr>
+					<td>Fees</td>
+					<td>No hidden fees, premium rates</td>
+					<td>0.2% trading + withdrawal</td>
+					<td>0.1-0.2% + GST</td>
+					<td>0.1% spot, higher for fiat</td>
+				  </tr>
+				  <tr>
+					<td>Login Method</td>
+					<td>Mobile number only, no password</td>
+					<td>Email/phone + password/2FA</td>
+					<td>Email + password/2FA</td>
+					<td>Email/phone + 2FA</td>
+				  </tr>
+				  <tr>
+					<td>Support</td>
+					<td>24/7 live chat/phone</td>
+					<td>Ticket-based, chat</td>
+					<td>24/7 chat, email</td>
+					<td>24/7 global chat</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</div>
+		  </div>
+		</section>
+
 					
 </>
+
+	
 
             </div>
     
