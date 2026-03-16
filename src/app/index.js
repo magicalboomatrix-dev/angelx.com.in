@@ -766,7 +766,7 @@ export default function Index() {
                 <h1>
                   Welcome to AngelX → Your Ultimate USDT-to-INR Exchange App!
                 </h1>
-                <div className="exchange-banner"><img src="/images/exchange-platforms-banner.jpeg" style={{ width: "100%" }} /></div>
+                <div className="exchange-banner"><img src="/images/exchange-platforms-banner.jpeg" alt="AngelX" style={{ width: "100%" }} /></div>
               </div>
             </div>
             <div className="col-right">
