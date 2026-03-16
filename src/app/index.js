@@ -843,13 +843,14 @@ export default function Index() {
 <p>— Confirm the transaction.</p>
 
 <p>Download <Link href="https://www.angelx.com.in/AngelX.apk"><strong>"AngelX Apk"</strong></Link> now 100% safe, no KYC required. Great for traders upgrading from native USDT-to-INR swaps.</p>
+	
+	<FAQ />
                 </Readmore>
               </div>
             </div>
           </div>
         </div>
 
-	<FAQ />
 		</section> 
 
 					
