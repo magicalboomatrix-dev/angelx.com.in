@@ -867,10 +867,11 @@ export default function Index() {
 				​
 			  </p>
 			</div>
-			<div className="table-responsive">
-			  <h4>
+					<h4>
 				<b>Feature Comparison</b>
 			  </h4>
+			<div className="table-responsive">
+			  
 			  <table className="table">
 				<tbody>
 				  <tr>
