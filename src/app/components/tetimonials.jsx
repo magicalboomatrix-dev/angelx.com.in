@@ -28,7 +28,7 @@ export default function TetimonialCarousel() {
 		  <div className="desc"><p>Lightning-fast! Sold 500 USDT on TRC20, went to ICICI account in less than 30 minutes. No KYC bullshit, so good for fast trades.</p>   </div>
 		  <div className="info">
 		  <span className="uname">Rahul Kumar </span>
-		  <span className="uimg"><img src="https://picsum.photos/400/200?1" style={{ width: "100%" }} /> </span>
+		  <span className="uimg"><img src="/images/user1-img.jpg" style={{ width: "100%" }} /> </span>
 		  </div>		  
 		  </div>          
         </div>
@@ -38,7 +38,7 @@ export default function TetimonialCarousel() {
 		  <div className="desc"><p>Love AngelX's speed! User-friendly notifications from the app + zero delays on USDT-INR swaps Support fixed verification overnight. Transparent, secure—ideal for pros. Thumbs up!</p>   </div>
 		  <div className="info">
 		  <span className="uname">Amit Singh </span>
-		  <span className="uimg"><img src="https://picsum.photos/400/200?1" style={{ width: "100%" }} /> </span>
+		  <span className="uimg"><img src="/images/user2-img.jpg" style={{ width: "100%" }} /> </span>
 		  </div>		  
 		  </div>          
         </div>
@@ -48,7 +48,7 @@ export default function TetimonialCarousel() {
 		  <div className="desc"><p>AngelX shines in India. P2P, same-day bank transfers without work; support ahead of the game. Robust security for large trades. Consistent—my trusted platform. Outstanding!</p>   </div>
 		  <div className="info">
 		  <span className="uname">Vikram Reddy</span>
-		  <span className="uimg"><img src="https://picsum.photos/400/200?1" style={{ width: "100%" }} /> </span>
+		  <span className="uimg"><img src="/images/user3-img.jpg" style={{ width: "100%" }} /> </span>
 		  </div>		  
 		  </div>          
         </div>
