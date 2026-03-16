@@ -3313,6 +3313,35 @@ section.tetimonial-carousel {
     padding-top: 5px;
 }
 
+section.tetimonial-carousel .info {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+section.tetimonial-carousel .info span.uimg >img {
+    border-radius: 0;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.tetimonial-carousel .info span.uimg {
+    max-width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+section.tetimonial-carousel h2.title {
+    text-align: center;
+}
+
+section.tetimonial-carousel {
+    text-align: center;
+}
 
 
 
