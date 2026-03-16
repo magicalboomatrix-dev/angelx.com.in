@@ -851,7 +851,6 @@ export default function Index() {
 		  <div className="container">
 			<div className="section-title">
 			  <h2 className="title">AngelX vs Other Exchange Platforms</h2>
-				<div className="exchange-banner"><img src="/images/exchange-platforms-banner.jpeg" style={{ width: "100%" }} /></div>
 			  <p>
 				AngelX, a modern crypto exchange platform with USDT to INR conversions
 				as its primary operating domain offering no KYC trading, quick payouts
