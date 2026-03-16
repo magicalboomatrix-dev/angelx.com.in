@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 
 import FAQ from "./components/faq";
+import TetimonialCarousel from "./components/TetimonialCarousel";
 import Footer from './components/footer';
 import Readmore from "./components/Readmore";
 
@@ -844,7 +845,6 @@ export default function Index() {
 
 <p>Download <Link href="https://www.angelx.com.in/AngelX.apk"><strong>"AngelX Apk"</strong></Link> now 100% safe, no KYC required. Great for traders upgrading from native USDT-to-INR swaps.</p>
 	
-	<FAQ />
 	
 	
 	<section className="section-4-table">
@@ -946,7 +946,8 @@ export default function Index() {
 		
 		<TetimonialCarousel />
 		
-		
+		 
+		<FAQ />
 		
                 </Readmore>
               </div>
