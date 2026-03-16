@@ -3282,11 +3282,11 @@ section.section-4-table table.table th {
     color: #fff;
 }
 
-section.section-4-table  h4 {
-    padding: 10px;
+section.section-4-table h4 {
+    padding: 15px;
     text-align: center;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 section.section-4-table table.table td {
