@@ -3263,7 +3263,6 @@ section.section-4-table .table-responsive {
 }
 
 section.section-4-table .table-responsive table.table {
-    text-align: left;
     /* border: 1px solid #ccc; */
     padding: 0;
     border-collapse: collapse;
