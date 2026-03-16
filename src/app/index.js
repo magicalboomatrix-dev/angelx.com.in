@@ -845,14 +845,8 @@ export default function Index() {
 <p>Download <Link href="https://www.angelx.com.in/AngelX.apk"><strong>"AngelX Apk"</strong></Link> now 100% safe, no KYC required. Great for traders upgrading from native USDT-to-INR swaps.</p>
 	
 	<FAQ />
-                </Readmore>
-              </div>
-            </div>
-          </div>
-        </div>
-
-		</section> 
-
+	
+	
 	<section className="section-4-table">
 		  <div className="container">
 			<div className="section-title">
@@ -867,7 +861,7 @@ export default function Index() {
 				​
 			  </p>
 			</div>
-					<h4>
+			  <h4>
 				<b>Feature Comparison</b>
 			  </h4>
 			<div className="table-responsive">
@@ -935,6 +929,33 @@ export default function Index() {
 			</div>
 		  </div>
 		</section>
+		
+		<section className="section-4-table section-refer-earn">
+		  <div className="container">
+		  <div className="section-title">
+			  <h2 className="title">Refer and Earn Crypto Rewards: Invite Friends, You Get Paid!</h2>
+			  <div className="image">
+				<img src="/images/Referal-Image.webp" className="image img-responsive"/>          
+			  </div>
+			  <p>
+				Sign up for our rewards program and start earning rewards to redeem today! How does it work, you ask? Simple — refer your friends to join our platform and grow together as they actively trade on the platform; reap rewards in return! Sign up now, don’t miss out on making some extra money with friends!
+			  </p>
+			</div>
+		  </div>
+		</section>
+		
+		<TetimonialCarousel />
+		
+		
+		
+                </Readmore>
+              </div>
+            </div>
+          </div>
+        </div>
+
+		</section> 
+
 
 					
 </>
