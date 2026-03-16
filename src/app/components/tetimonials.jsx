@@ -20,7 +20,7 @@ export default function TetimonialCarousel() {
     <div>
 	<section className="section-4-table tetimonial-carousel">
 	<div className="container">
-		  <div className="section-title"><h2 className="title">What People Say About Us</h2>   </div>
+		  <div className="section-title"><h2 className="title">What People Say <span className="color">About Us</span></h2>   </div>
 
       <Slider {...settings}>
         <div>
