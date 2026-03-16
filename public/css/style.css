@@ -3343,6 +3343,35 @@ section.tetimonial-carousel {
     text-align: center;
 }
 
+section.section-4-table {
+    padding-top: 15px;
+}
+
+section.section-4-table h2.title {
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+section.section-refer-earn h2.title {}
+
+section.tetimonial-carousel {
+    border: 1px solid #ccc;
+    padding: 15px 10px 10px 10px;
+    margin-top: 20px;
+}
+
+section.tetimonial-carousel button.slick-arrow {
+    display: none !important;
+}
+
+section.tetimonial-carousel ul.slick-dots {
+    bottom: -40px;
+}
+
+section.tetimonial-carousel ul.slick-dots li {
+    margin: 0;
+}
+
 
 
 
