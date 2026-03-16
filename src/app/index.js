@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 
 import FAQ from "./components/faq";
-import TetimonialCarousel from "./components/TetimonialCarousel";
+import TetimonialCarousel from "./components/tetimonials";
 import Footer from './components/footer';
 import Readmore from "./components/Readmore";
 
