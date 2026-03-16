@@ -856,7 +856,7 @@ export default function Index() {
 	<section classname="section-4">
 		  <div classname="container">
 			<div className="section-title">
-			  <h4 classname="title">AngelX vs Other Exchange Platforms</h4>
+			  <h2 classname="title">AngelX vs Other Exchange Platforms</h2>
 			  <p>
 				AngelX, a modern crypto exchange platform with USDT to INR conversions
 				as its primary operating domain offering no KYC trading, quick payouts
@@ -868,9 +868,9 @@ export default function Index() {
 			  </p>
 			</div>
 			<div classname="table-responsive">
-			  <h2>
+			  <h4>
 				<b>Feature Comparison</b>
-			  </h2>
+			  </h4>
 			  <table classname="table">
 				<tbody>
 				  <tr>
