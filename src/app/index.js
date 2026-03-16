@@ -853,7 +853,7 @@ export default function Index() {
 
 		</section> 
 
-	<section classname="section-4">
+	<section classname="section-4-table">
 		  <div classname="container">
 			<div className="section-title">
 			  <h2 classname="title">AngelX vs Other Exchange Platforms</h2>
