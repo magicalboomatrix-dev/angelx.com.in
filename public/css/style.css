@@ -3298,6 +3298,21 @@ section.section-4-table table.table tr:nth-child(odd) {
     background: #eee;
 }
 
+section.section-refer-earn {}
+
+section.section-refer-earn img.image {
+    height: auto;
+    width: 100%;
+}
+
+section.section-refer-earn h2.title {
+    margin-top: 0;
+}
+
+section.tetimonial-carousel {
+    padding-top: 5px;
+}
+
 
 
 
