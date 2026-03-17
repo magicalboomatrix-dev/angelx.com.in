@@ -3380,7 +3380,10 @@ section.section-4-table .exchange-banner {
     padding-bottom: 7px;
 }
 
-
+.header-left h1.title-left {
+    font-size: 18px;
+    font-weight: 600;
+}
 
 
 
