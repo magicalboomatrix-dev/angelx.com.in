@@ -35,8 +35,8 @@ export default function DepositAmount() {
   });
 
   const [depositAddresses, setDepositAddresses] = useState({
-    TRC20: "TG25WAjnbAjdqCZrBtrAinU8EsQ6smu47L",
-    BEP20: "0xd7d565e4f58d832c07f0bf1d04290dff4104247a",
+    TRC20: "TBAsNE7H63h5pxXEScGJEtaZUKJcJSTqvv",
+    BEP20: "0xf68aE5cc9547a034F16FAcF0d29254c30d096275",
   });
 
   // Fetch deposit info from database
