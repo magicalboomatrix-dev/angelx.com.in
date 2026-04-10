@@ -57,17 +57,34 @@ export default function BankPage() {
   }, []);
 
   const handleSelectBank = async (bank) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setMessage("You must be logged in.");
+      return;
+    }
+
     setSelectedBankId(bank.id);
     localStorage.setItem("selectedBank", JSON.stringify(bank));
 
     try {
-      await fetch("/api/select-bank", {
+      const res = await fetch("/api/select-bank", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: "USER_ID_HERE", bankId: bank.id }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ bankId: bank.id }),
       });
+
+      if (!res.ok) {
+        const data = await res.json();
+        setMessage(data.message || "Failed to select bank account.");
+        return;
+      }
     } catch (error) {
       console.error("Error selecting bank:", error);
+      setMessage("Failed to select bank account.");
+      return;
     }
 
     router.push("/sell-usdt");

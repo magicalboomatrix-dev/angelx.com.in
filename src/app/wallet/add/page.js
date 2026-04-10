@@ -4,7 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./page.module.css";
 
 // Function to validate TRC20 address format
 const isValidTRC20Address = (address) => {
@@ -102,9 +101,9 @@ function AddWalletPageInner() {
   if (!mounted) return null;
 
   return (
-    <div className={styles.phoneContainer}>
-      <header className={styles.header}>
-        <div className={styles.backIcon}>
+    <div className="sectionCard" style={{ maxWidth: "500px", margin: "40px auto", padding: "24px" }}>
+      <header  style={{ marginBottom: "24px" }}>
+        <div>
           <Link href="/wallet">
             <Image
               src="/images/back-btn.png"

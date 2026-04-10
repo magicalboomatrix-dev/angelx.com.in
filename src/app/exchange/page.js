@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Slider = dynamic(
@@ -17,6 +18,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Exchange() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
   const [timeLeft, setTimeLeft] = useState(52);
   const [rate, setRate] = useState(102);
 
@@ -60,12 +62,47 @@ export default function Exchange() {
     pauseOnHover: false,
   };
 
+  function maskMobile(mobile) {
+    const digits = String(mobile || "").replace(/\D/g, "");
+    if (digits.length < 7) return "+91 *** ***";
+    const local = digits.slice(-10);
+    return `+91 ${local.slice(0, 3)}***${local.slice(-4)}`;
+  }
+
+  function formatUsd(value) {
+    const amount = Number(value || 0);
+    if (Number.isNaN(amount)) return "$0";
+    return `$${amount.toFixed(2).replace(/\.00$/, "")}`;
+  }
+
   // Auth + Rate
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
     const token = localStorage.getItem("token");
     if (token) setIsLoggedIn(true);
+
+    const fetchUser = async () => {
+      if (!token) {
+        setUser(null);
+        setIsLoggedIn(false);
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/auth/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!res.ok) throw new Error("Unauthorized");
+        const data = await res.json();
+        setUser(data.user || null);
+        setIsLoggedIn(Boolean(data.user));
+      } catch {
+        setUser(null);
+        setIsLoggedIn(false);
+      }
+    };
 
     const fetchRate = async () => {
       try {
@@ -81,6 +118,7 @@ export default function Exchange() {
       }
     };
 
+    fetchUser();
     fetchRate();
   }, []);
 
@@ -91,23 +129,49 @@ export default function Exchange() {
     <div>
       <main>
         <div className="page-wrappers" style={{height: '92vh'}}>
-          <header className="header">
-            <div className="left">
-              <div className="header-left">
-                <img alt="Logo" className="logo" src="/images/logo-icon.png" />
-                <h1 className="title-left">Welcome to AngelX</h1>
+          <header className="header exchange-top-strip">
+            {user ? (
+              <div className="exchange-user-row">
+                <div className="exchange-user-avatar">
+                  <Image
+                    src="/images/user-pic.png"
+                    alt="user"
+                    width={40}
+                    height={40}
+                    priority
+                  />
+                </div>
+
+                <div className="exchange-user-copy">
+                  <h1>{maskMobile(user.mobile)}</h1>
+                  <p>{formatUsd(user?.wallet?.available || 0)}</p>
+                </div>
               </div>
-            </div>
-            <div className="right">
+            ) : (
+              <div className="exchange-welcome-row">
+                <div className="exchange-welcome-logo">
+                  <img alt="Logo" className="logo" src="/images/logo-icon.png" />
+                </div>
+                <div className="exchange-welcome-copy">Welcome to AngelX</div>
+              </div>
+            )}
+
+            <div className="right exchange-support">
               <a href="https://vm.nebestbox.com/1jgm3swhyv8jv09qrr9q3o7lgp">
-                <img src="/images/customer-care-icon.png" />
+                <Image
+                  src="/images/customer-care-icon1.png"
+                  alt="support"
+                  width={24}
+                  height={24}
+                  priority
+                />
               </a>
             </div>
           </header>
 
           
 
-          <div className="page-wrapper page-wrapper-ex">
+          <div className="page-wrapper page-wrapper-ex" style={{ marginTop: '58px' }}>
 
             
             {/* Banner Slider */}
@@ -529,6 +593,106 @@ export default function Exchange() {
   transform: scale(0.98);    /* Slight click effect */
 }
       `}</style>               
+      <style jsx>{`
+        .exchange-top-strip {
+          padding: 10px 16px 8px 12px;
+          background: #ffffff;
+          border-bottom: 1px solid #ececec;
+          min-height: 60px;
+        }
+
+        .exchange-user-row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          min-width: 0;
+        }
+
+        .exchange-welcome-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          min-width: 0;
+        }
+
+        .exchange-welcome-logo {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .exchange-welcome-logo .logo {
+          width: 24px;
+          height: 24px;
+          object-fit: contain;
+        }
+
+        .exchange-welcome-copy {
+          font-size: 15px;
+          line-height: 1.1;
+          color: #313131;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+
+        .exchange-user-avatar {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          overflow: hidden;
+          background: linear-gradient(135deg, #e9d2a0 0%, #d2b272 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .exchange-user-avatar :global(img) {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .exchange-user-copy {
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .exchange-user-copy h1 {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.05;
+          color: #171717;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+
+        .exchange-user-copy p {
+          margin: 4px 0 0;
+          font-size: 12px;
+          line-height: 1;
+          color: #666666;
+          font-weight: 600;
+        }
+
+        .exchange-support a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+        }
+
+        .exchange-support :global(img) {
+          opacity: 0.85;
+        }
+      `}</style>
           
     </div>
     

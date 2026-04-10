@@ -2,7 +2,35 @@
 import prisma from "./prisma";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
+export const USER_COOKIE_NAME = "userToken";
+export const USER_TOKEN_MAX_AGE_SECONDS = 24 * 60 * 60;
+
+function getJwtSecret() {
+  if (!process.env.JWT_SECRET) {
+    throw new Error("JWT_SECRET is not configured");
+  }
+
+  return process.env.JWT_SECRET;
+}
+
+function getTokenFromRequest(req) {
+  const authHeader = req.headers.get("authorization") || "";
+  if (authHeader.startsWith("Bearer ")) {
+    return authHeader.slice(7).trim();
+  }
+
+  return req.cookies?.get(USER_COOKIE_NAME)?.value || null;
+}
+
+function buildCookieOptions(maxAge) {
+  return {
+    httpOnly: true,
+    maxAge,
+    path: "/",
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+  };
+}
 
 /**
  * Generate JWT for a user
@@ -11,7 +39,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
  */
 export function generateToken(user) {
   const payload = { id: user.id, email: user.email };
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, getJwtSecret(), { expiresIn: USER_TOKEN_MAX_AGE_SECONDS });
 }
 
 /**
@@ -21,9 +49,8 @@ export function generateToken(user) {
  */
 export function verifyToken(token) {
   try {
-    return jwt.verify(token, JWT_SECRET);
+    return jwt.verify(token, getJwtSecret());
   } catch (err) {
-    console.error("JWT verification failed:", err);
     return null;
   }
 }
@@ -35,10 +62,9 @@ export function verifyToken(token) {
  */
 export async function getCurrentUser(req) {
   try {
-    const authHeader = req.headers.get("authorization");
-    if (!authHeader || !authHeader.startsWith("Bearer ")) return null;
+    const token = getTokenFromRequest(req);
+    if (!token) return null;
 
-    const token = authHeader.split(" ")[1];
     const payload = verifyToken(token);
     if (!payload) return null;
 
@@ -54,4 +80,14 @@ export async function getCurrentUser(req) {
     console.error("getCurrentUser error:", err);
     return null;
   }
+}
+
+export function setUserAuthCookie(response, token) {
+  response.cookies.set(USER_COOKIE_NAME, token, buildCookieOptions(USER_TOKEN_MAX_AGE_SECONDS));
+  return response;
+}
+
+export function clearUserAuthCookie(response) {
+  response.cookies.set(USER_COOKIE_NAME, "", buildCookieOptions(0));
+  return response;
 }

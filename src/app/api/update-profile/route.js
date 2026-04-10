@@ -40,7 +40,8 @@
 
 
 import prisma from '@/lib/prisma';
-import jwt from 'jsonwebtoken';
+import { getCurrentUser } from '@/lib/auth';
+import { sanitizeText } from '@/lib/validation';
 
 const validateEmail = (value) => {
   const email = value.trim().toLowerCase();
@@ -50,30 +51,17 @@ const validateEmail = (value) => {
 
 export async function POST(req) {
   try {
-    // 🔐 Auth check
-    const authHeader = req.headers.get('authorization');
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    const user = await getCurrentUser(req);
+    if (!user) {
       return new Response(
         JSON.stringify({ error: 'Unauthorized' }),
         { status: 401 }
       );
     }
 
-    const token = authHeader.split(' ')[1];
-    let payload;
-
-    try {
-      payload = jwt.verify(token, process.env.JWT_SECRET);
-    } catch (err) {
-      return new Response(
-        JSON.stringify({ error: 'Invalid token' }),
-        { status: 401 }
-      );
-    }
-
-    // 📦 Body
     const body = await req.json();
-    const { fullName, email } = body;
+    const fullName = sanitizeText(body.fullName, { maxLength: 120, allowEmpty: false });
+    const email = sanitizeText(body.email, { maxLength: 254, allowEmpty: false });
 
     if (!fullName || !email) {
       return new Response(
@@ -89,14 +77,12 @@ export async function POST(req) {
       );
     }
 
-    // 🔄 Normalize
     const normalizedEmail = email.trim().toLowerCase();
 
-    // 🧠 Update profile
     const updatedUser = await prisma.user.update({
-      where: { id: payload.id },
+      where: { id: user.id },
       data: {
-        fullName: fullName.trim(),
+        fullName,
         email: normalizedEmail,
       },
     });

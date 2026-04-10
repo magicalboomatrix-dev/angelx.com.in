@@ -3,5 +3,11 @@ import { defineConfig } from "prisma/config";
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
-  seed: "node prisma/seed.js"
+  migrations: {
+    path: "prisma/migrations",
+    seed: "node prisma/seed.js",
+  },
+  datasource: {
+    url: process.env.DATABASE_URL ?? "",
+  },
 });

@@ -4,7 +4,7 @@ const withPWA = withPWAInit({
   dest: 'public',
   register: true,
   skipWaiting: true,
-  disable: false,
+  disable: process.env.NODE_ENV === 'development',
   buildExcludes: [/middleware-manifest\.json$/, /middleware-runtime\.js$/],
   reloadOnOnline: true,
   runtimeCaching: [

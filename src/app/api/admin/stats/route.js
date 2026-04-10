@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/app/lib/prisma';
 import { verifyAdminCookie } from '@/app/lib/adminAuth';
+import { decimalToNumber, serializeTransactions } from '@/lib/serializers';
 
 export async function GET(request) {
   const auth = verifyAdminCookie(request);
@@ -9,8 +10,14 @@ export async function GET(request) {
   }
 
   try {
-    const [userCount, pendingDeposits, pendingSells, recentTxns] = await Promise.all([
+    const [userCount, totalDeposits, pendingDeposits, pendingSells, totalVolume, recentTxns] = await Promise.all([
       prisma.user.count(),
+      prisma.transaction.count({
+        where: {
+          type: 'DEPOSIT',
+          status: 'SUCCESS',
+        },
+      }),
       prisma.transaction.count({
         where: {
           type: 'DEPOSIT',
@@ -23,6 +30,13 @@ export async function GET(request) {
           status: 'PENDING',
         },
       }),
+      prisma.transaction.aggregate({
+        _sum: { amount: true },
+        where: {
+          status: 'SUCCESS',
+          type: { in: ['DEPOSIT', 'SELL', 'WITHDRAW', 'BUY'] },
+        },
+      }),
       prisma.transaction.findMany({
         take: 5,
         orderBy: { createdAt: 'desc' },
@@ -32,9 +46,11 @@ export async function GET(request) {
 
     return NextResponse.json({
       users: userCount,
+      totalDeposits,
       deposits: pendingDeposits,
       sells: pendingSells,
-      recentActivity: recentTxns,
+      totalVolume: decimalToNumber(totalVolume._sum.amount || 0),
+      recentActivity: serializeTransactions(recentTxns),
     });
   } catch (error) {
     console.error('Error fetching stats:', error);

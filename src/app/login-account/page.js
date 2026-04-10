@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function LoginAccountPage() {
   const router = useRouter();
-  const [step, setStep] = useState("mobile"); // "mobile" | "otp"
+  const searchParams = useSearchParams();
+  const referralCode = searchParams.get('ref')?.trim() || '';
+  const [step, setStep] = useState("mobile");
   const [seconds, setSeconds] = useState(60);
   const [hideDiv, setHideDiv] = useState(false);
   const [mobile, setMobile] = useState("");
@@ -16,7 +18,7 @@ export default function LoginAccountPage() {
 
   useEffect(() => {
     if (step !== "otp") return;
-    
+
     if (seconds === 0) {
       setHideDiv(true);
       return;
@@ -31,7 +33,7 @@ export default function LoginAccountPage() {
 
   const handleSendOtp = async () => {
     setError("");
-    
+
     if (!/^[6-9]\d{9}$/.test(mobile)) {
       setError("Please enter a valid 10-digit mobile number");
       return;
@@ -55,7 +57,7 @@ export default function LoginAccountPage() {
       setSeconds(60);
       setHideDiv(false);
       setStep("otp");
-    } catch (err) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setLoading(false);
@@ -64,9 +66,9 @@ export default function LoginAccountPage() {
 
   const handleVerifyOtp = async () => {
     setError("");
-    
-    if (!otp || otp.length !== 4) {
-      setError("Please enter a valid 4-digit OTP");
+
+    if (!otp || otp.length !== 6) {
+      setError("Please enter a valid 6-digit OTP");
       return;
     }
 
@@ -75,7 +77,11 @@ export default function LoginAccountPage() {
       const res = await fetch('/api/auth/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone: mobile, otp }),
+        body: JSON.stringify({
+          phone: mobile,
+          otp,
+          ...(referralCode ? { referralCode } : {}),
+        }),
       });
 
       const data = await res.json();
@@ -90,7 +96,7 @@ export default function LoginAccountPage() {
       }
 
       router.push(data.redirectTo || '/home');
-    } catch (err) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setLoading(false);
@@ -111,27 +117,28 @@ export default function LoginAccountPage() {
           <div className="page-wrapperss page-wrapper-ex page-wrapper-login page-wrapper-loginacc form-wrapper">
             <div className="back-btn">
               <Link href="/login">
-                <img src="/images/back-btn.png" />
+                <img src="/images/back-btn.png" alt="back" />
               </Link>
             </div>
-            <section className="section-1" style={{padding:"0px"}}>
-              <br/>
+            <section className="section-1" style={{ padding: "0px" }}>
+              <br />
 
               <div className="form-bx">
-                
-                
                 {error && <div className="error-msg">{error}</div>}
 
                 {step === "mobile" ? (
                   <>
-                  <h3 className="title">
-                    <b>Login Account</b>
-                  </h3>
+                    <h3 className="title">
+                      <b>Login Account</b>
+                    </h3>
                     <p className="subtitle">Please enter your mobile number.</p>
+                    {referralCode ? (
+                      <p className="inviteNotice">Referral link detected. Your invite reward will be tracked automatically after signup.</p>
+                    ) : null}
 
                     <div className="mobileRow">
                       <div className="prefix">
-                        <span className="flag"><img src="/images/flag-icon.png" /></span>
+                        <span className="flag"><img src="/images/flag-icon.png" alt="India" /></span>
                         <span className="code">+91</span>
                       </div>
                       <input
@@ -144,9 +151,9 @@ export default function LoginAccountPage() {
                       />
                     </div>
 
-                    <button 
-                      className="btn" 
-                      type="button" 
+                    <button
+                      className="btn"
+                      type="button"
                       onClick={handleSendOtp}
                       disabled={loading}
                     >
@@ -159,13 +166,13 @@ export default function LoginAccountPage() {
                       <b>Please enter SMS OTP</b>
                     </h3>
                     <p className="subtitle">SMS OTP sent to +91{mobile}</p>
-                    
+
                     <div className="mobileRowflex">
                       <input
                         className="otpInput"
                         placeholder=""
                         inputMode="numeric"
-                        maxLength={4}
+                        maxLength={6}
                         value={otp}
                         onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
                       />
@@ -177,13 +184,6 @@ export default function LoginAccountPage() {
                     </div>
 
                     <div className="otpActions">
-                      {/* <button className="link" type="button" onClick={() => {
-                        setStep("mobile");
-                        setOtp("");
-                        setError("");
-                      }}>
-                        Change number
-                      </button> */}
                       {hideDiv && (
                         <button className="link" type="button" onClick={handleResendOtp}>
                           Resend OTP
@@ -191,8 +191,8 @@ export default function LoginAccountPage() {
                       )}
                     </div>
 
-                    <button 
-                      className="btn" 
+                    <button
+                      className="btn"
                       type="button"
                       onClick={handleVerifyOtp}
                       disabled={loading}
@@ -232,6 +232,15 @@ export default function LoginAccountPage() {
           margin: 8px 0 5px;
           font-size: 15px;
           color: #6b7280;
+        }
+        .inviteNotice {
+          margin: 0 0 12px;
+          padding: 10px 12px;
+          border-radius: 10px;
+          background: #fff7dc;
+          color: #7a5b00;
+          font-size: 13px;
+          line-height: 1.45;
         }
         .error-msg {
           background: #fee2e2;
@@ -273,7 +282,7 @@ export default function LoginAccountPage() {
           margin-right: 6px;
         }
         .flag img {
-            max-width: 26px;
+          max-width: 26px;
         }
         .code {
           font-size: 16px;
