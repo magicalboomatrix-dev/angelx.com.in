@@ -18,8 +18,6 @@ export async function GET(req) {
     const where = search
       ? {
           OR: [
-            { fullName: { contains: search, mode: 'insensitive' } },
-            { email: { contains: search, mode: 'insensitive' } },
             { mobile: { contains: search, mode: 'insensitive' } },
           ],
         }
@@ -32,8 +30,6 @@ export async function GET(req) {
         where,
         select: {
           id: true,
-          fullName: true,
-          email: true,
           mobile: true,
           createdAt: true,
           wallet: {

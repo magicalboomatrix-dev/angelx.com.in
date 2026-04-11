@@ -61,8 +61,8 @@ export function AdminUserIdentity({ user, href, muted = false }) {
         <UserRound className="h-5 w-5" />
       </div>
       <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-slate-950">{user?.fullName || user?.email || 'Unknown user'}</p>
-        <p className="truncate text-xs text-slate-500">{user?.email || user?.mobile || 'No contact available'}</p>
+        <p className="truncate text-sm font-semibold text-slate-950">{user?.mobile ? `+91 ${user.mobile}` : user?.id ? `User #${user.id}` : 'Unknown user'}</p>
+        <p className="truncate text-xs text-slate-500">{user?.id ? `User #${user.id}` : 'No contact available'}</p>
       </div>
     </div>
   );
@@ -107,8 +107,8 @@ export function AdminTransactionDetailDialog({
 
   const userItems = transaction.user
     ? [
-        { label: 'User', value: transaction.user.fullName || 'Not provided' },
-        { label: 'Email', value: transaction.user.email || 'Not provided' },
+        { label: 'User', value: transaction.user.mobile ? `+91 ${transaction.user.mobile}` : `User #${transaction.user.id}` },
+        { label: 'User ID', value: transaction.user.id ? `#${transaction.user.id}` : 'Not provided' },
         { label: 'Mobile', value: transaction.user.mobile || 'Not provided' },
       ]
     : [];

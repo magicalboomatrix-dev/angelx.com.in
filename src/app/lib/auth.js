@@ -38,7 +38,7 @@ function buildCookieOptions(maxAge) {
  * @returns {string} token
  */
 export function generateToken(user) {
-  const payload = { id: user.id, email: user.email };
+  const payload = { id: user.id };
   return jwt.sign(payload, getJwtSecret(), { expiresIn: USER_TOKEN_MAX_AGE_SECONDS });
 }
 

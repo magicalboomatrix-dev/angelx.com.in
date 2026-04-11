@@ -24,8 +24,6 @@ export async function GET(req) {
         user: {
           select: {
             id: true,
-            email: true,
-            fullName: true,
             mobile: true,
             wallet: {
               select: {

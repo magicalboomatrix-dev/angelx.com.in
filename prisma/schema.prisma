@@ -23,10 +23,8 @@ enum TransactionStatus {
 
 model User {
   id            Int            @id @default(autoincrement())
-  email         String?        @unique
   otp           String?
   otpExpiry     DateTime?
-  fullName      String?
   mobile        String         @unique
   inviteCode    String?        @unique
   referredById  Int?

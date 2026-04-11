@@ -59,17 +59,17 @@ export default function AdminUsersDirectoryPage() {
     <div className="space-y-6">
       <AdminPageHeader
         title="User directory"
-        description="Search users instantly, open a full detail page, edit account information, and manage linked payout or crypto wallet records."
+        description="Search users instantly by mobile number, open a full detail page, and manage linked payout or crypto wallet records."
         actions={
           <div className="relative w-full min-w-65 max-w-sm">
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            <Input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search name, email, or mobile" className="pl-11" />
+            <Input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search mobile" className="pl-11" />
           </div>
         }
       />
 
       <div className="grid gap-4 md:grid-cols-3">
-        <AdminMetricCard label="Matched users" value={total} detail="Search results across name, email, and mobile fields." icon={Users} tone="slate" />
+        <AdminMetricCard label="Matched users" value={total} detail="Search results across registered mobile numbers." icon={Users} tone="slate" />
         <AdminMetricCard label="Page size" value={pageSize} detail="Users shown per page for quick review without overload." icon={Search} tone="cyan" />
         <AdminMetricCard label="Current page" value={page} detail="Use pagination to move through the full customer directory." icon={WalletCards} tone="emerald" />
       </div>
@@ -98,17 +98,17 @@ export default function AdminUsersDirectoryPage() {
                     <td className="px-4 py-4">
                       <div className="flex items-center gap-3">
                         <div className="flex h-12 w-12 items-center justify-center  bg-slate-100 font-semibold text-slate-700">
-                          {(user.fullName || user.email || user.mobile || 'U').charAt(0).toUpperCase()}
+                          {(user.mobile || 'U').charAt(0).toUpperCase()}
                         </div>
                         <div>
-                          <p className="font-semibold text-slate-900">{user.fullName || 'Unnamed user'}</p>
+                          <p className="font-semibold text-slate-900">{user.mobile ? `+91 ${user.mobile}` : 'Unknown user'}</p>
                           <p className="text-xs text-slate-500">User #{user.id}</p>
                         </div>
                       </div>
                     </td>
                     <td className="px-4 py-4">
-                      <p className="font-medium text-slate-900">{user.email || 'No email'}</p>
-                      <p className="text-xs text-slate-500">{user.mobile}</p>
+                      <p className="font-medium text-slate-900">{user.mobile ? `+91 ${user.mobile}` : 'No mobile'}</p>
+                      <p className="text-xs text-slate-500">OTP login account</p>
                     </td>
                     <td className="px-4 py-4">
                       <p className="font-semibold text-slate-900">${formatAdminMoney(user.wallet?.usdtAvailable)}</p>

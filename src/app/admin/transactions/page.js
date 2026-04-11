@@ -73,11 +73,11 @@ export default function AdminTransactionsPage() {
         <AdminMetricCard label="Page value" value={`$${formatAdminMoney(currentPageTotal)}`} detail="Combined amount represented in the current page of results." icon={Filter} tone="cyan" />
       </div>
 
-      <AdminSurface title="Filter transactions" description="Search by reference or customer identity, then narrow by type or settlement status.">
+      <AdminSurface title="Filter transactions" description="Search by reference or user mobile, then narrow by type or settlement status.">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_200px_200px_auto]">
           <div className="relative">
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            <Input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search reference, email, or full name" className="pl-11" />
+            <Input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search reference or mobile" className="pl-11" />
           </div>
           <select value={type} onChange={(event) => setType(event.target.value)} className="h-11  border border-slate-200 bg-white px-4 text-sm text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
             <option value="">All types</option>
@@ -124,8 +124,8 @@ export default function AdminTransactionsPage() {
                       <p className="text-xs text-slate-500">{transaction.description || 'No description'}</p>
                     </td>
                     <td className="px-4 py-4">
-                      <p className="font-medium text-slate-900">{transaction.user?.fullName || 'Unknown user'}</p>
-                      <p className="text-xs text-slate-500">{transaction.user?.email || 'No email'}</p>
+                      <p className="font-medium text-slate-900">{transaction.user?.mobile ? `+91 ${transaction.user.mobile}` : 'Unknown user'}</p>
+                      <p className="text-xs text-slate-500">{transaction.user?.id ? `User #${transaction.user.id}` : 'No user id'}</p>
                     </td>
                     <td className="px-4 py-4 text-slate-700">{transaction.type}</td>
                     <td className="px-4 py-4"><StatusBadge status={transaction.status} /></td>

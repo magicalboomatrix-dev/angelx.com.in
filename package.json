@@ -27,7 +27,6 @@
     "lucide-react": "^0.543.0",
     "next": "^15.5.4",
     "next-pwa": "^5.6.0",
-    "nodemailer": "^7.0.6",
     "owl.carousel": "^2.3.4",
     "prisma": "^6.15.0",
     "react": "19.1.0",
@@ -36,8 +35,7 @@
     "react-slick": "^0.31.0",
     "sharp": "^0.34.5",
     "slick-carousel": "^1.8.1",
-    "tailwind-merge": "^3.5.0",
-    "twilio": "^5.12.0"
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",

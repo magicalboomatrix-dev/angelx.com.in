@@ -5,8 +5,7 @@ A modern, full-stack cryptocurrency exchange platform built with Next.js 15, Pri
 ## Features
 
 ### User Features
-- ✅ Email OTP authentication
-- ✅ Profile management
+- ✅ Mobile OTP authentication
 - ✅ Bank card binding
 - ✅ USDT deposit (TRC20/ERC20)
 - ✅ USDT withdrawal/selling
@@ -31,14 +30,14 @@ A modern, full-stack cryptocurrency exchange platform built with Next.js 15, Pri
 - **Backend**: Next.js API Routes
 - **Database**: PostgreSQL with Prisma ORM
 - **Authentication**: JWT tokens, HTTP-only cookies (admin)
-- **Email**: Nodemailer
+- **SMS**: Fast2SMS
 - **Styling**: CSS Modules
 
 ## Prerequisites
 
 - Node.js 18+ installed
 - PostgreSQL database
-- Gmail account for email OTP (or other SMTP service)
+- Fast2SMS credentials for production OTP delivery
 
 ## Setup Instructions
 
@@ -66,19 +65,15 @@ DATABASE_URL="postgresql://username:password@localhost:5432/angelx?schema=public
 # JWT Secret (change this to a secure random string)
 JWT_SECRET="your-secret-key-change-this-in-production-2026-angelx-super-secure"
 
-# Email Configuration (Gmail)
-EMAIL_USER="your-email@gmail.com"
-EMAIL_PASS="your-gmail-app-password"
+# SMS Configuration (Fast2SMS)
+FAST2SMS_AUTHORIZATION_KEY="your-fast2sms-authorization-key"
+FAST2SMS_ROUTE="q"
+FAST2SMS_LANGUAGE="english"
 
 # App
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 NODE_ENV="development"
 ```
-
-**Note**: For Gmail, you need to:
-1. Enable 2-factor authentication
-2. Generate an App Password: https://myaccount.google.com/apppasswords
-3. Use the App Password (not your regular password) in EMAIL_PASS
 
 ### 4. Setup Database
 
@@ -109,14 +104,14 @@ The app will be available at [http://localhost:3000](http://localhost:3000)
 - Password: Admin@123
 
 ### User Login
-- Users can register by entering their email
-- An OTP will be sent to their email for verification
+- Users can register by entering their mobile number
+- An OTP will be sent by SMS for verification
 
 ## Database Schema
 
 The application uses the following main models:
 
-- **User**: User accounts with email-based authentication
+- **User**: User accounts with mobile-based OTP authentication
 - **BankCard**: User bank cards for withdrawals
 - **Wallet**: User USDT wallet balances
 - **Transaction**: Deposit/withdrawal transactions
@@ -126,10 +121,9 @@ The application uses the following main models:
 ## API Routes
 
 ### User APIs
-- `POST /api/auth/send-otp` - Send OTP to email
+- `POST /api/auth/send-otp` - Send OTP to mobile
 - `POST /api/auth/verify-otp` - Verify OTP and login
 - `GET /api/auth/me` - Get current user
-- `POST /api/update-profile` - Update user profile
 - `GET /api/wallet` - Get wallet balance
 - `POST /api/bank-card` - Add bank card
 - `GET /api/bank-card` - Get user's bank cards
@@ -178,8 +172,7 @@ angelx/
 │       ├── lib/           # Utility functions
 │       │   ├── prisma.js  # Prisma client
 │       │   ├── auth.js    # User auth helpers
-│       │   ├── adminAuth.js # Admin auth helpers
-│       │   └── mailer.js  # Email service
+│       │   └── adminAuth.js # Admin auth helpers
 │       ├── api/           # API routes
 │       │   ├── auth/      # User authentication
 │       │   ├── admin/     # Admin APIs
@@ -213,10 +206,11 @@ npm run lint           # Run Next.js linter
 
 ## Troubleshooting
 
-### Email OTP not sending
-- Verify EMAIL_USER and EMAIL_PASS in .env
-- For Gmail, ensure you're using an App Password, not your regular password
-- Check that 2FA is enabled on your Gmail account
+### SMS OTP not sending
+- Verify FAST2SMS_AUTHORIZATION_KEY in .env
+- Confirm the Fast2SMS account is active and has SMS credits for the target route
+- Check FAST2SMS_ROUTE and FAST2SMS_LANGUAGE if you changed them from the defaults
+- In development, enable ALLOW_DEV_OTP_BYPASS=true if you need to test without SMS delivery
 
 ### Database connection errors
 - Verify DATABASE_URL is correct
@@ -234,7 +228,7 @@ npm run lint           # Run Next.js linter
 Update these for production:
 - Change JWT_SECRET to a strong random string
 - Update DATABASE_URL to production database
-- Configure production email service
+- Configure production SMS service
 - Set NODE_ENV="production"
 
 ### Build and Deploy

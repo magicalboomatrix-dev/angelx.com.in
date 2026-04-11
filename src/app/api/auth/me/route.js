@@ -37,8 +37,6 @@ export async function GET(req) {
       JSON.stringify({
         user: {
           id: user.id,
-          email: user.email,
-          fullName: user.fullName,
           mobile: user.mobile,
           wallet: {
             total: serializedWallet?.usdtDeposited || 0,

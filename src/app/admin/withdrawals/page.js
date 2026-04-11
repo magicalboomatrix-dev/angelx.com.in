@@ -176,8 +176,8 @@ export default function AdminWithdrawalsPage() {
                         <p className="text-xs text-slate-500">{request.network || 'BANK'}</p>
                       </td>
                       <td className="px-4 py-4">
-                        <p className="font-medium text-slate-900">{request.user?.fullName || 'Unknown user'}</p>
-                        <p className="text-xs text-slate-500">{request.user?.email || request.user?.mobile || 'No contact'}</p>
+                        <p className="font-medium text-slate-900">{request.user?.mobile ? `+91 ${request.user.mobile}` : 'Unknown user'}</p>
+                        <p className="text-xs text-slate-500">{request.user?.id ? `User #${request.user.id}` : 'No contact'}</p>
                       </td>
                       <td className="px-4 py-4 font-semibold text-slate-900">${formatAdminMoney(request.amount)}</td>
                       <td className="px-4 py-4 text-slate-600">
@@ -219,8 +219,8 @@ export default function AdminWithdrawalsPage() {
                 <div className=" border border-slate-200/80 bg-slate-50/80 p-4">
                   <p className="text-sm font-semibold text-slate-900">Customer</p>
                   <div className="mt-3 space-y-1 text-sm text-slate-600">
-                    <p>{selectedRequest.user?.fullName || 'Unknown user'}</p>
-                    <p>{selectedRequest.user?.email || 'No email'}</p>
+                    <p>{selectedRequest.user?.mobile ? `+91 ${selectedRequest.user.mobile}` : 'Unknown user'}</p>
+                    <p>{selectedRequest.user?.id ? `User #${selectedRequest.user.id}` : 'No user id'}</p>
                     <p>{selectedRequest.user?.mobile || 'No mobile'}</p>
                     <p>Available: ${formatAdminMoney(selectedRequest.user?.wallet?.usdtAvailable)}</p>
                     <p>Locked: ${formatAdminMoney(selectedRequest.user?.wallet?.usdtLocked)}</p>

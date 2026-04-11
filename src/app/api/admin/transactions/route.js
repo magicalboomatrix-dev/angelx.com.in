@@ -29,8 +29,7 @@ export async function GET(request) {
       ? {
           OR: [
             { referenceId: { contains: search, mode: 'insensitive' } },
-            { user: { email: { contains: search, mode: 'insensitive' } } },
-            { user: { fullName: { contains: search, mode: 'insensitive' } } },
+            { user: { mobile: { contains: search, mode: 'insensitive' } } },
             { txnId: { contains: search, mode: 'insensitive' } },
             { address: { contains: search, mode: 'insensitive' } },
           ],
@@ -69,8 +68,6 @@ export async function GET(request) {
           user: {
             select: {
               id: true,
-              fullName: true,
-              email: true,
               mobile: true,
             }
           },

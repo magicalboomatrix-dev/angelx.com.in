@@ -106,6 +106,9 @@ export default function HomePage() {
                 /></Link>
             </div>
           </header>
+
+
+
           <div className="page-overflows">        
           <div className="page-wrapper page-wrapper-ex">
             <section className="section-1 mine-hero">

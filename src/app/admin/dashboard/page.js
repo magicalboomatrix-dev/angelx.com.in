@@ -140,8 +140,8 @@ export default function AdminDashboardPage() {
                   <tr key={item.id} className="border-b border-slate-100 last:border-b-0">
                     <td className="px-4 py-4 font-medium text-slate-900">{item.referenceId || `TX-${item.id}`}</td>
                     <td className="px-4 py-4">
-                      <p className="font-medium text-slate-900">{item.user?.fullName || 'Unknown user'}</p>
-                      <p className="text-xs text-slate-500">{item.user?.email || 'No email'}</p>
+                      <p className="font-medium text-slate-900">{item.user?.mobile ? `+91 ${item.user.mobile}` : 'Unknown user'}</p>
+                      <p className="text-xs text-slate-500">{item.user?.id ? `User #${item.user.id}` : 'No user id'}</p>
                     </td>
                     <td className="px-4 py-4 text-slate-700">{item.type}</td>
                     <td className="px-4 py-4"><StatusBadge status={item.status} /></td>

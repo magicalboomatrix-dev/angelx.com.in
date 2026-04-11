@@ -69,9 +69,7 @@ export async function getReferralDashboardData(userId, origin, prismaClient = pr
         orderBy: { createdAt: 'desc' },
         select: {
           id: true,
-          fullName: true,
           mobile: true,
-          email: true,
           createdAt: true,
           referredAt: true,
         },
@@ -142,9 +140,8 @@ export async function getReferralDashboardData(userId, origin, prismaClient = pr
 
     return {
       id: entry.id,
-      name: entry.fullName || entry.email || maskMobile(entry.mobile),
+      name: `User #${entry.id}`,
       mobile: maskMobile(entry.mobile),
-      email: entry.email || null,
       joinedAt: entry.createdAt,
       referredAt: entry.referredAt,
       successfulOrders,

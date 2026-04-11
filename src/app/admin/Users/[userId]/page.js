@@ -36,8 +36,6 @@ function createEmptyCryptoWallet() {
 
 function mapUserToForm(user) {
   return {
-    fullName: user?.fullName || '',
-    email: user?.email || '',
     mobile: user?.mobile || '',
     bankCards: Array.isArray(user?.bankCards) && user.bankCards.length ? user.bankCards : [createEmptyBankCard()],
     cryptoWallets: Array.isArray(user?.cryptoWallets) && user.cryptoWallets.length ? user.cryptoWallets : [createEmptyCryptoWallet()],
@@ -124,8 +122,6 @@ export default function AdminUserDetailPage() {
     setSavingProfile(true);
     try {
       const payload = {
-        fullName: form.fullName,
-        email: form.email,
         mobile: form.mobile,
         bankCards: form.bankCards.filter((item) => item.accountNo || item.ifsc || item.payeeName || item.bankName),
         cryptoWallets: form.cryptoWallets.filter((item) => item.address),
@@ -201,7 +197,7 @@ export default function AdminUserDetailPage() {
   return (
     <div className="space-y-6">
       <AdminPageHeader
-        title={user.fullName || `User #${user.id}`}
+        title={user.mobile ? `+91 ${user.mobile}` : `User #${user.id}`}
         description="Edit account information, manage linked bank or crypto wallets, and make wallet balance adjustments from one record."
         actions={<Button asChild variant="secondary"><Link href="/admin/Users">Back to users</Link></Button>}
       />
@@ -214,17 +210,9 @@ export default function AdminUserDetailPage() {
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
-        <AdminSurface title="User profile" description="Identity and contact fields used across the platform.">
+        <AdminSurface title="User profile" description="Primary login mobile and account metadata used across the platform.">
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-2 md:col-span-2">
-              <label className="text-sm font-semibold text-slate-700">Full name</label>
-              <Input value={form.fullName} onChange={(event) => setForm((current) => ({ ...current, fullName: event.target.value }))} placeholder="Customer name" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Email</label>
-              <Input value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} placeholder="name@example.com" />
-            </div>
-            <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-700">Mobile</label>
               <Input value={form.mobile} onChange={(event) => setForm((current) => ({ ...current, mobile: event.target.value }))} placeholder="9876543210" />
             </div>

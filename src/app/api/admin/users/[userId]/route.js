@@ -5,15 +5,6 @@ import { verifyAdminCookie } from '@/lib/adminAuth';
 import { normalizeBankCardInput, normalizePhone, parsePositiveInt, sanitizeText } from '@/lib/validation';
 import { serializeTransactions, serializeWallet } from '@/lib/serializers';
 
-function normalizeEmail(value) {
-  const email = sanitizeText(value, { maxLength: 254 })?.toLowerCase() || null;
-  if (!email) {
-    return null;
-  }
-
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : false;
-}
-
 function normalizeCryptoWalletInput(input) {
   const address = sanitizeText(input?.address, { maxLength: 255, allowEmpty: false });
   const network = sanitizeText(input?.network, { maxLength: 40, allowEmpty: false })?.toUpperCase();
@@ -47,8 +38,6 @@ async function getUserDetail(userId) {
     where: { id: userId },
     select: {
       id: true,
-      fullName: true,
-      email: true,
       mobile: true,
       createdAt: true,
       updatedAt: true,
@@ -163,18 +152,12 @@ export async function PATCH(request, { params }) {
 
   try {
     const body = await request.json();
-    const fullName = sanitizeText(body?.fullName, { maxLength: 120 }) || null;
     const mobile = normalizePhone(body?.mobile);
-    const email = normalizeEmail(body?.email);
     const bankCards = Array.isArray(body?.bankCards) ? body.bankCards : [];
     const cryptoWallets = Array.isArray(body?.cryptoWallets) ? body.cryptoWallets : [];
 
     if (!mobile) {
       return NextResponse.json({ error: 'A valid mobile number is required' }, { status: 400 });
-    }
-
-    if (email === false) {
-      return NextResponse.json({ error: 'Enter a valid email address' }, { status: 400 });
     }
 
     const normalizedCards = [];
@@ -259,8 +242,6 @@ export async function PATCH(request, { params }) {
       await tx.user.update({
         where: { id: userId },
         data: {
-          fullName,
-          email,
           mobile,
         },
       });
@@ -378,7 +359,7 @@ export async function PATCH(request, { params }) {
     }
 
     if (error?.code === 'P2002') {
-      return NextResponse.json({ error: 'Duplicate mobile, email, or wallet record detected' }, { status: 400 });
+      return NextResponse.json({ error: 'Duplicate mobile or wallet record detected' }, { status: 400 });
     }
 
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

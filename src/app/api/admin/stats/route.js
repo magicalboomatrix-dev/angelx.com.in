@@ -40,7 +40,7 @@ export async function GET(request) {
       prisma.transaction.findMany({
         take: 5,
         orderBy: { createdAt: 'desc' },
-        include: { user: { select: { fullName: true, email: true } } },
+        include: { user: { select: { id: true, mobile: true } } },
       }),
     ]);
 

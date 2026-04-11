@@ -170,8 +170,8 @@ export default function AdminDepositsPage() {
                       <p className="text-xs text-slate-500">{deposit.txnId || 'No txid submitted'}</p>
                     </td>
                     <td className="px-4 py-4">
-                      <p className="font-medium text-slate-900">{deposit.user?.fullName || 'Unknown user'}</p>
-                      <p className="text-xs text-slate-500">{deposit.user?.email || deposit.user?.mobile || 'No contact'}</p>
+                      <p className="font-medium text-slate-900">{deposit.user?.mobile ? `+91 ${deposit.user.mobile}` : 'Unknown user'}</p>
+                      <p className="text-xs text-slate-500">{deposit.user?.id ? `User #${deposit.user.id}` : 'No contact'}</p>
                     </td>
                     <td className="px-4 py-4 font-semibold text-slate-900">${formatAdminMoney(deposit.amount)}</td>
                     <td className="px-4 py-4">
@@ -211,8 +211,8 @@ export default function AdminDepositsPage() {
                 <div className=" border border-slate-200/80 bg-slate-50/80 p-4">
                   <p className="text-sm font-semibold text-slate-900">Customer</p>
                   <div className="mt-3 space-y-1 text-sm text-slate-600">
-                    <p>{selectedDeposit.user?.fullName || 'Unknown user'}</p>
-                    <p>{selectedDeposit.user?.email || 'No email'}</p>
+                    <p>{selectedDeposit.user?.mobile ? `+91 ${selectedDeposit.user.mobile}` : 'Unknown user'}</p>
+                    <p>{selectedDeposit.user?.id ? `User #${selectedDeposit.user.id}` : 'No user id'}</p>
                     <p>{selectedDeposit.user?.mobile || 'No mobile'}</p>
                   </div>
                 </div>
