@@ -73,7 +73,6 @@ h1, h2, h3, h4, p {
 
 .page-wrapper {
     height: 90%;
-    padding: 14px 16px 14px 16px;
     box-sizing: border-box;
     overflow: auto;
     margin: 26px 0 45px;

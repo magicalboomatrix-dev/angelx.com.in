@@ -90,10 +90,10 @@ export default function USDTDeposit() {
                 <h3>Deposit USDT</h3>
               </div>
               <div className="right">
-                <Link href="/history" className="history-link">
-                  <img src="/images/undo.png" />
-                </Link>
-              </div>
+                  <Link href="/deposit-history" className="history-link">
+                    <img src="/images/undo.png" />
+                  </Link>
+                </div>
             </header>
 
             <div className="page-wrapperss" >
