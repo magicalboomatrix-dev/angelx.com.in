@@ -121,7 +121,7 @@ export default function AdminUsersDirectoryPage() {
                     <td className="px-4 py-4 text-slate-500">{formatAdminDate(user.createdAt)}</td>
                     <td className="px-4 py-4 text-right">
                       <Button asChild variant="secondary">
-                        <Link href={`/admin/Users/${user.id}`}>Open profile</Link>
+                        <Link href={`/admin/users/${user.id}`}>Open profile</Link>
                       </Button>
                     </td>
                   </tr>

@@ -130,7 +130,7 @@ export default function AdminSellingPage() {
 
                   return (
                     <TableRow key={request.id} className="cursor-pointer" onClick={() => { setRejectReason(''); setSelectedRequest(request); }}>
-                      <TableCell><AdminUserIdentity user={request.user} href={request.user?.id ? `/admin/Users/${request.user.id}` : undefined} muted /></TableCell>
+                      <TableCell><AdminUserIdentity user={request.user} href={request.user?.id ? `/admin/users/${request.user.id}` : undefined} muted /></TableCell>
                       <TableCell>
                         <div className="font-semibold text-slate-900">{request.referenceId}</div>
                         <div className="text-xs text-slate-500">{request.network || request.address || 'No network provided'}</div>
