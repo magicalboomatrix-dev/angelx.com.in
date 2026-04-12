@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import styles from './page.module.css';
 
 // Function to validate TRC20 address format
 const isValidTRC20Address = (address) => {
