@@ -53,7 +53,7 @@ export async function POST(req) {
       );
     }
 
-    await sendSms(normalizedPhone, `Your AngelX OTP is ${otp}`);
+    await sendSms(normalizedPhone, otp);
 
     return new Response(
       JSON.stringify({ message: 'OTP sent to your phone' }),

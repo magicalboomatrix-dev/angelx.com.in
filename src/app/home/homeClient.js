@@ -80,7 +80,7 @@ export default function HomePage() {
   }
 
   return (    
-    <div> 
+    <div style={{maxWidth:"480px"}}> 
       <main>
         <div className="page-wrappers page-wrapper-ex home-wrappers mine-dashboard" style={{height: 'auto',paddingBottom: '50px'}}>
           <header className="header mine-header" style={{position: "relative"}}>
@@ -135,7 +135,7 @@ export default function HomePage() {
               </div>
             </section>
 
-            <section className="section-2a mine-payx-card">
+            <section className="section-2a">
               <div className="inside">
                 <div className="top">
                   <div className="lefts">
@@ -146,8 +146,8 @@ export default function HomePage() {
                       <p className="ttl">
                         <b>0 PAYX</b>
                       </p>
-                      <p>
-                        <span>1PAYX = 0.010163USDT</span>
+                      <p className="item-mine">
+                        <p style={{ fontSize: '10px' }}>1PAYX = 0.010163USDT</p>
                         <img src="/images/ques.png" className="inq" />
                       </p>
                     </div>
@@ -157,10 +157,12 @@ export default function HomePage() {
                       <button className="btn">Withdraw</button>
                     </div>
                   </Link>
+                  
                 </div>
-                <div className="btm">
+                 <div className="btm">
                   <button className="btn">To AngelX pro</button>
                 </div>
+               
               </div>
             </section>
 
@@ -386,8 +388,6 @@ export default function HomePage() {
         }
 
         .mine-dashboard .mine-payx-card .inside .btm button {
-          margin-top: 9px;
-          padding: 10px 0;
           border-radius: 6px;
           font-size: 13px;
           font-weight: 600;
@@ -408,7 +408,6 @@ export default function HomePage() {
 
         .mine-dashboard .mine-reward-card .inside .mid {
           margin-left: 10px;
-          padding-left: 18px;
           border-right-color: rgba(27, 27, 27, 0.5);
         }
 

@@ -1,8 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
- import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function AddBankCard() {
@@ -81,93 +80,166 @@ const handleSubmit = async () => {
   return (
     <div>
       <main>
-        <div className="page-wrappers bind-bank-card">
-          <header className="header">
-            <div className="brdc">
-              <div className="back-btn">
-                <Link href="/bank">
-                  <Image src="/images/back-btn.png" width={24} height={24} alt="Back" />
-                </Link>
-              </div>
-              <h3>Bind bank card</h3>
-            </div>
-            <div className="right"></div>
+        <div className="bbc-page">
+          {/* Header */}
+          <header className="bbc-header">
+            <button className="bbc-back" onClick={() => router.back()}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12 19 5 12 12 5" />
+              </svg>
+            </button>
+            <h2 className="bbc-title">Bind bank card</h2>
+            <div style={{ width: 28 }} />
           </header>
 
-          <div className="page-wrapperss page-wrapper-ex page-wrapper-login page-wrapper-loginacc form-wrapper">
-            <section className="section-1">
-              <div className="form-bx">
-                <div className="form-rw">
-                  <label className="text" htmlFor="account-no">AccNo.</label>
-                  <input
-                    type="text"
-                    id="account-no"
-                    placeholder="Please enter Account No."
-                    value={accountNo}
-                    onChange={(e) => setAccountNo(e.target.value.replace(/\D/g, ''))} // only digits
-                  />
-                </div>
-
-                <div className="form-rw">
-                  <label className="text" htmlFor="ifsc">IFSC</label>
-                  <div className="pos">
-                    <input
-                      type="text"
-                      id="ifsc"
-                      placeholder="Please enter IFSC"
-                      value={ifsc}
-                      onChange={(e) => setIfsc(e.target.value.toUpperCase())} // auto-uppercase
-                      maxLength={11} // standard IFSC length
-                    />
-                  </div>
-                </div>
-
-                <div className="form-rw">
-                  <label className="text" htmlFor="payee-name">AccName.</label>
-                  <input
-                    type="text"
-                    id="payee-name"
-                    placeholder="Please enter Payee Name."
-                    value={payeeName}
-                    onChange={(e) => setPayeeName(e.target.value)}
-                  />
-                </div>
-
-                <div className="form-rw">
-                  <label className="text" htmlFor="bank-name">Bank Name</label>
-                  <input
-                    type="text"
-                    id="bank-name"
-                    placeholder="Please enter Bank Name (e.g., HDFC, SBI)"
-                    value={bankName}
-                    onChange={(e) => setBankName(e.target.value)}
-                  />
-                </div>
-
-                <button
-                  className="login-btn"
-                  onClick={handleSubmit}
-                  disabled={loading}
-                >
-                  {loading ? 'Submitting...' : 'Commit'}
-                </button>
-
-                {message && (
-                  <p style={{ color: messageType === 'success' ? 'green' : 'red', marginTop: '10px' }}>
-                    {message}
-                  </p>
-                )}
+          {/* Form */}
+          <div className="bbc-body">
+            <div className="bbc-form">
+              <div className="bbc-row">
+                <label className="bbc-label">AccNo</label>
+                <input
+                  className="bbc-input"
+                  type="text"
+                  placeholder="Please enter Account No"
+                  value={accountNo}
+                  onChange={(e) => setAccountNo(e.target.value.replace(/\D/g, ''))}
+                />
               </div>
+              <div className="bbc-divider" />
 
-              <br />
-              <p>
-                Please check the information carefully before submission. If transfer
-                issues occur due to incorrect information, it is the user's responsibility.
+              <div className="bbc-row">
+                <label className="bbc-label">IFSC</label>
+                <input
+                  className="bbc-input"
+                  type="text"
+                  placeholder="Please enter IFSC"
+                  value={ifsc}
+                  onChange={(e) => setIfsc(e.target.value.toUpperCase())}
+                  maxLength={11}
+                />
+              </div>
+              <div className="bbc-divider" />
+
+              <div className="bbc-row">
+                <label className="bbc-label">AccName</label>
+                <input
+                  className="bbc-input"
+                  type="text"
+                  placeholder="Please enter Payee Name"
+                  value={payeeName}
+                  onChange={(e) => setPayeeName(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <button
+              className="bbc-commit-btn"
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? 'Submitting...' : 'Commit'}
+            </button>
+
+            {message && (
+              <p style={{ color: messageType === 'success' ? 'green' : 'red', marginTop: '10px', fontSize: '13px' }}>
+                {message}
               </p>
-            </section>
+            )}
+
+            <p className="bbc-warning">
+              Please check the information carefully before submission, If the transfer issues occur due to incorrect information provided by user, It is the user's own responsibility
+            </p>
           </div>
         </div>
       </main>
+
+      <style jsx>{`
+        .bbc-page {
+          min-height: 100vh;
+          background: #fff;
+          max-width:480px;
+          margin: 0 auto;
+          font-family: sans-serif;
+        }
+        .bbc-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: #fff;
+          padding: 14px 16px;
+          border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .bbc-back {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 2px;
+          display: flex;
+          align-items: center;
+        }
+        .bbc-title {
+          font-size: 17px;
+          font-weight: 700;
+          color: #111;
+          margin: 0;
+        }
+        .bbc-body {
+          padding: 16px;
+        }
+        .bbc-form {
+          background: #fff;
+          border-radius: 10px;
+          overflow: hidden;
+          margin-bottom: 16px;
+        }
+        .bbc-row {
+          display: flex;
+          align-items: center;
+          padding: 16px 14px;
+          gap: 12px;
+        }
+        .bbc-label {
+          font-size: 14px;
+          font-weight: 500;
+          color: #111;
+          min-width: 70px;
+        }
+        .bbc-input {
+          flex: 1;
+          border: none;
+          outline: none;
+          font-size: 14px;
+          color: #999;
+          background: transparent;
+        }
+        .bbc-input::placeholder {
+          color: #bbb;
+        }
+        .bbc-divider {
+          height: 1px;
+          background: rgba(0,0,0,0.07);
+          margin: 0 14px;
+        }
+        .bbc-commit-btn {
+          width: 100%;
+          padding: 14px 0;
+          border-radius: 50px;
+          border: none;
+          background: #d9d9d9;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          margin-bottom: 14px;
+        }
+        .bbc-warning {
+          font-size: 13px;
+          color:black;
+          line-height: 1.6;
+          margin: 0;
+        }
+      `}</style>
     </div>
   );
 }

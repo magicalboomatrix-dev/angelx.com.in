@@ -7,7 +7,9 @@ import { ToastProvider } from "./components/ToastProvider";
 
 export default function LayoutClient({ children }) {
   const pathname = usePathname();
-  const hideFooter = pathname?.startsWith("/admin");
+  const hideFooter = pathname?.startsWith("/admin") ||
+    pathname === "/bank" ||
+    pathname === "/bind-bank-card";
 
   return (
     <ConfirmProvider>

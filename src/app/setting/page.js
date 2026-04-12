@@ -33,7 +33,7 @@ export default function SettingPage() {
     <img src="/images/back-btn.png" alt="back"/>
   </Link>
 </div>
-              <b>Setting</b></div>
+              <h4>Setting</h4></div>
               </div>
 
           </header>
@@ -76,8 +76,10 @@ export default function SettingPage() {
                         <img src="/images/s-icon3.jpg" /> Version
                       </h3>
                     </div>
-                    <div className="arw">
-                      <span style={{margin:"10px"}}>v3.2.1</span> <img src="/images/right-arw.png" />
+                    <div className="arw" style={{display:"flex",gap:"10px",alignItems:"center"}}>
+                       <p style={{fontSize:"12px"}}>v3.2.1</p>
+
+                       <img src="/images/right-arw.png" />
                     </div>
                   </Link>
                 </div>
@@ -93,8 +95,8 @@ export default function SettingPage() {
                     </div>
                   </Link>
                 </div>
-                  {/*<div className="bx">
-                  <Link href="">
+                  <div className="bx">
+                  <Link href="/recent_transaction_password">
                     <div className="image">
                       <h3>
                         <img src="/images/s-icon5.jpg" /> Reset transaction password
@@ -104,7 +106,7 @@ export default function SettingPage() {
                       <img src="/images/right-arw.png" />
                     </div>
                   </Link>
-                </div>*/}
+                </div>
               </div>
 
               <button className="button-style logout" onClick={handleLogout}>
