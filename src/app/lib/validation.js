@@ -1,6 +1,6 @@
 import crypto from "crypto";
 
-export const OTP_LENGTH = 6;
+export const OTP_LENGTH = 4;
 export const SELL_RESERVE_ON_APPROVAL_MARKER = "[reserve=on-approval]";
 
 const MONEY_REGEX = /^\d+(\.\d{1,2})?$/;

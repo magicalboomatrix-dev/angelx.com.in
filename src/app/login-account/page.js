@@ -67,8 +67,8 @@ function LoginAccountContent() {
   const handleVerifyOtp = async () => {
     setError("");
 
-    if (!otp || otp.length !== 6) {
-      setError("Please enter a valid 6-digit OTP");
+    if (!otp || otp.length !== 4) {
+      setError("Please enter a valid 4-digit OTP");
       return;
     }
 
@@ -172,7 +172,7 @@ function LoginAccountContent() {
                         className="otpInput"
                         placeholder=""
                         inputMode="numeric"
-                        maxLength={6}
+                        maxLength={4}
                         value={otp}
                         onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
                       />
