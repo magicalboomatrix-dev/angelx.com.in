@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function LoginAccountPage() {
+function LoginAccountContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const referralCode = searchParams.get('ref')?.trim() || '';
@@ -345,5 +345,13 @@ export default function LoginAccountPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function LoginAccountPage() {
+  return (
+    <Suspense fallback={null}>
+      <LoginAccountContent />
+    </Suspense>
   );
 }
