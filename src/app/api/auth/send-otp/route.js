@@ -28,32 +28,33 @@ export async function POST(req) {
     }
 
     const otp = generateOtp();
-    const otpHash = await bcrypt.hash(otp, 10);
     const otpExpiry = new Date(Date.now() + 5 * 60 * 1000);
 
-    await prisma.user.upsert({
-      where: { mobile: normalizedPhone },
-      update: { otp: otpHash, otpExpiry },
-      create: {
-        mobile: normalizedPhone,
-        otp: otpHash,
-        otpExpiry,
-      },
-    });
-
+    // Dev bypass — save and return immediately without sending SMS
     if (isDevOtpBypassEnabled) {
-      console.log(`[DEV OTP] ${normalizedPhone}: ${otp}`);
-
+      const otpHash = await bcrypt.hash(otp, 10);
+      await prisma.user.upsert({
+        where: { mobile: normalizedPhone },
+        update: { otp: otpHash, otpExpiry },
+        create: { mobile: normalizedPhone, otp: otpHash, otpExpiry },
+      });
+      console.info(`[DEV OTP] phone=+91${normalizedPhone} otp=${otp}`);
       return new Response(
-        JSON.stringify({
-          message: 'OTP generated in development mode',
-          devOtp: otp,
-        }),
+        JSON.stringify({ message: 'OTP generated in development mode', devOtp: otp }),
         { status: 200 }
       );
     }
 
+    // Production: send SMS first — only persist if delivery succeeds.
+    // This prevents a valid OTP hash sitting in DB when the user never received it.
     await sendSms(normalizedPhone, otp);
+
+    const otpHash = await bcrypt.hash(otp, 10);
+    await prisma.user.upsert({
+      where: { mobile: normalizedPhone },
+      update: { otp: otpHash, otpExpiry },
+      create: { mobile: normalizedPhone, otp: otpHash, otpExpiry },
+    });
 
     return new Response(
       JSON.stringify({ message: 'OTP sent to your phone' }),
@@ -62,7 +63,7 @@ export async function POST(req) {
   } catch (error) {
     console.error('Send OTP error:', error);
 
-    if (error?.code === 'SMS_NOT_CONFIGURED' || error?.code === 'SMS_AUTH_FAILED' || error?.code === 'SMS_SEND_FAILED') {
+    if (['SMS_NOT_CONFIGURED','SMS_AUTH_FAILED','SMS_SEND_FAILED','SMS_NETWORK_ERROR'].includes(error?.code)) {
       return new Response(
         JSON.stringify({
           error: 'OTP service is temporarily unavailable',

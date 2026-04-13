@@ -73,6 +73,7 @@ h1, h2, h3, h4, p {
 
 .page-wrapper {
     height: 90%;
+    padding: 14px 15px 14px 15px;
     box-sizing: border-box;
     overflow: auto;
     margin: 26px 0 45px;
@@ -233,7 +234,7 @@ section.section-4 table td p.red {
 }
 
 section.section-4 table td h4 {
-    font-weight: 500;
+    font-weight: bold !important;
     font-size: 13px;
 }
 
@@ -296,6 +297,7 @@ section.section-1a.banner-img {
 .page-wrapper-ex .price-calc .base-price h4 {
     font-size: 45px;
     font-family: corsicasx6;
+    font-weight: 600;
   
     font-family: "Mona Sans", sans-serif;
 

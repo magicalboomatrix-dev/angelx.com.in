@@ -77,7 +77,7 @@ export default function HomePage() {
   }
 
   return (
-    <div style={{ maxWidth: "480px", margin: "0 auto" }}>
+    <div>
       <main>
         <div className="page-wrappers page-wrapper-ex home-wrappers mine-dashboard" style={{ height: "auto", paddingBottom: "50px" }}>
           <header className="header mine-header" style={{ position: "relative" }}>

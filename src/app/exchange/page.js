@@ -210,7 +210,7 @@ export default function Exchange() {
 
                 <div className="reff-price">
                   <div className="base-price">
-                    <h4>
+                    <h4 style={{  fontWeight: "600", margin: 0 }}>
                       {rate} <span>Base</span>
                     </h4>
                   </div>
