@@ -1,13 +1,11 @@
 import "./globals.css";
 import Script from "next/script";
-
 import LayoutClient from "./LayoutClient";
-import { ToastProvider } from "./components/ToastProvider";
 
 export const metadata = {
   title: "AngelX → USDT selling Platform",
   description:
-    "Log in to AngelX for instant USDT-to-INR conversions at the best market rates. Fast processing, secure payouts, reliable support—sell your crypto easily now!",
+    "Log in to AngelX for instant USDT-to-INR conversions at the best market rates. Fast processing, secure payouts, reliable support—sell your crypto easily today.",
   keywords: [
     "angelx usdt price",
     "angelx crypto",
@@ -19,7 +17,7 @@ export const metadata = {
     "angelx exchange",
   ],
   alternates: {
-    canonical: "https://www.angelx.ind.in/",
+    canonical: "https://www.angelx.com.in/",
   },
   robots: {
     index: true,
@@ -49,28 +47,28 @@ export const metadata = {
   publisher: "AngelX",
   openGraph: {
     type: "website",
-    title: "AngelX → USDT selling Platform",
+    title: "AngelX → India’s #1 Trusted USDT Exchange Platform",
     description:
-      "Log in to AngelX for instant USDT-to-INR conversions at the best market rates. Fast processing, secure payouts, reliable support—sell your crypto easily now!",
-    url: "https://www.angelx.ind.in/",
+      "Log in to AngelX for instant USDT-to-INR conversions at the best market rates. Fast processing, secure payouts, reliable support—quickly access your account and sell crypto easily.",
+    url: "https://www.angelx.com.in/",
     siteName: "AngelX",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.angelx.ind.in/images/logo-icon.png",
+        url: "https://www.angelx.com.in/images/logo-icon.png",
         width: 1200,
         height: 630,
-        alt: "AngelX → USDT selling Platform",
+        alt: "AngelX USDT Exchange Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AngelX → USDT selling Platform",
+    title: "AngelX → India’s #1 Trusted USDT Exchange Platform",
     description:
-      "Log in to AngelX for instant USDT-to-INR conversions at the best market rates. Fast processing, secure payouts, reliable support—sell your crypto easily now!",
+      "Log in to AngelX for instant USDT to INR conversions at the best market rates. Fast processing, secure payouts, reliable support—quickly access your account and sell crypto easily.",
     site: "@AngelX",
-    images: ["https://www.angelx.ind.in/images/logo-icon.png"],
+    images: ["https://www.angelx.com.in/images/logo-icon.png"],
   },
 };
 
@@ -79,7 +77,7 @@ export default function Layout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/x-icon" href="/images/fav.jpeg" />
+        <link rel="icon" type="image/x-icon" href="/images/fav.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -99,10 +97,10 @@ export default function Layout({ children }) {
         />
         <link rel="stylesheet" href="/css/style.css" type="text/css" />
     
-        <meta name="google-site-verification" content="jUO7Efs6MP1aBNCrvKVjToVHeq5FzBJR5jpVmoDxSiY" />
-        {/* Google Analytics (G-ZZFB2YV2JH) */}
+        <meta name="google-site-verification" content="jN9KYRmsTeSoX0Jz2UVfis9kotpOcqf6iYkhLnsh6y8" />
+        {/* Google Analytics (G-142KL2HJJS) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZZFB2YV2JH"
+          src="https://www.googletagmanager.com/gtag/js?id=G-142KL2HJJS"
           strategy="afterInteractive"
         />
         <Script id="ga-main" strategy="afterInteractive">
@@ -110,7 +108,7 @@ export default function Layout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-ZZFB2YV2JH');
+            gtag('config', 'G-142KL2HJJS');
           `}
         </Script>
 
@@ -121,10 +119,10 @@ export default function Layout({ children }) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "AngelX",
-              "url": "https://www.angelx.ind.in/",
+              "url": "https://www.angelx.com.in/",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://www.angelx.ind.in/search?q={search_term_string}",
+                "target": "https://www.angelx.com.in/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
@@ -136,10 +134,10 @@ export default function Layout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FinancialService",
-              "@id": "https://www.angelx.ind.in/#organization",
+              "@id": "https://www.angelx.com.in/#organization",
               "name": "AngelX",
-              "url": "https://www.angelx.ind.in/",
-              "logo": "https://www.angelx.ind.in/images/logo-icon.png",
+              "url": "https://www.angelx.com.in/",
+              "logo": "https://www.angelx.com.in/images/logo-icon.png",
               "description": "Exchange USDT for INR instantly on AngelX—high rates, fast processing, immediate payouts, strong security, reliable support, and easy crypto selling for seamless trades.",
               "areaServed": {
                 "@type": "Country",
@@ -162,19 +160,17 @@ export default function Layout({ children }) {
             "name": "AngelX",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "ratingCount": "7966",
-              "reviewCount": "7966"
+              "ratingValue": "4.8",
+              "ratingCount": "17866",
+              "reviewCount": "17866"
             }
           }
           `,
         }}
-      />
+      />  
       </head>
       <body>
-        <ToastProvider>
-          <LayoutClient>{children}</LayoutClient>
-        </ToastProvider>
+        <LayoutClient>{children}</LayoutClient>
         <Script
           src="https://code.jquery.com/jquery-3.6.0.js"
           strategy="beforeInteractive"
@@ -203,74 +199,75 @@ export default function Layout({ children }) {
             }
           `}
         </Script>
-<Script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: `{
+
+          <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "What is AngelX, and how does it handle USDT to INR exchanges?",
+    "name": "What is AngelX and how does it work for USDT to INR exchange?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "AngelX is a reliable India-based crypto exchange app launched in 2021, focused on quick USDT-to-INR swaps without any KYC hassle. Just download the AngelX APK, log in using your phone number, send USDT over TRC20, BEP20, or ERC20 networks, and receive INR in your Indian bank account within 30 minutes."
+      "text": "AngelX is a trusted India-based crypto exchange app founded in 2021, specializing in instant USDT to INR conversions without KYC. Download the AngelX Apk, sign in with your mobile number, deposit USDT via TRC20/BEP20/ERC20, and get INR payouts to any Indian bank in 30 minutes."
     }
   },{
     "@type": "Question",
-    "name": "Can I exchange USDT for INR on AngelX without KYC?",
+    "name": "Can I sell USDT for INR on AngelX without KYC?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Absolutely—AngelX skips KYC entirely for USDT-to-INR trades. No PAN, Aadhaar, or documents required."
+      "text": "Right—AngelX does not perform KYC for any type of USDT-to-INR trade. No PAN, Aadhaar or documents needed."
     }
   },{
     "@type": "Question",
-    "name": "What are AngelX's top USDT rates?",
+    "name": "What are the best USDT rates on AngelX?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "AngelX delivers superior USDT rates above market averages for bigger INR returns."
+      "text": "AngelX provides premium USDT rates above market levels for maximum INR payouts. Check live, transparent USDT pricing in the app, sourced from Binance and WazirX, with real-time data for TRC20, BEP20, and ERC20 networks—no hidden fees."
     }
   },{
     "@type": "Question",
-    "name": "How fast are USDT deposits and INR withdrawals on AngelX?",
+    "name": "How long does it take to deposit USDT and withdraw INR on AngelX?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Deposits to your USDT wallet (via TRC20, BEP20, or ERC20) confirm in just 1-2 minutes. Once you place a sell order, INR hits your Indian bank via IMPS or RTGS in about 30 minutes—way quicker than most platforms."
+      "text": "Deposits into your USDT wallet (a TRC20, BEP20 or ERC20 one) are confirmed super quickly in only 1-2 minutes. Your sell order now or INR is credited to your Indian bank instantaneously in 30 min via IMPS or RTGS which are relatively faster than the most platforms."
     }
   },{
     "@type": "Question",
-    "name": "Is the AngelX Apk secure and free?",
+    "name": "Is AngelX Apk safe and free to download?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes, the AngelX Apk is completely free, secure, and auto-updates for peace of mind."
+      "text": "Certainly, the AngelX Apk is 100% free and safe with auto-update. Since 2021, thousands of crypto users have relied upon it for some anonymous USDT to INR swaps and real-time portfolio tracking around the clock- without charges or risking privacy."
     }
   },{
     "@type": "Question",
-    "name": "What bank accounts work for AngelX INR withdrawals?",
+    "name": "Which bank accounts can I link for AngelX INR payouts?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Connect any Indian bank account—personal or even rented—without any verification."
+      "text": "Link any Indian bank account (yours or even rental) on AngelX—no verification required."
     }
   },{
     "@type": "Question",
-    "name": "Does AngelX accept all USDT networks?",
+    "name": "Does AngelX support all USDT networks for deposits?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes, it supports TRC20, BEP20, ERC20, and others for effortless deposits from any wallet."
+      "text": "Yes, AngelX handles TRC20, BEP20, ERC20, and more for seamless USDT deposits from any wallet. Approvals are instant (1-2 minutes), making it the best crypto exchange for Indians converting stablecoins to INR."
     }
   },{
     "@type": "Question",
-    "name": "How do I access 24/7 support on AngelX for USDT-to-INR queries?",
+    "name": "How can I get 24/7 support for AngelX USDT to INR issues?",
     "acceptedAnswer": {
       "@type": "Answer",
       "text": "AngelX offers round-the-clock live chat and phone support from real agents. Track transactions in-app, grab instant statements, or reach out anytime for help with rates, deposits, or withdrawals."
     }
   }]
 }`
-  }}
-/>
+          }}
+        />
 
-  <script
+<script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: `
@@ -282,13 +279,13 @@ export default function Layout({ children }) {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Instant USDT-to-INR Exchange",
-                  "item": "https://www.angelx.ind.in/exchange"
+                  "item": "https://www.angelx.com.in/exchange"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Login to sell USDT",
-                  "item": "https://www.angelx.ind.in/login"
+                  "item": "https://www.angelx.com.in/login"
                 }
               ]
             }
