@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Welcome to AngelX",
+  title: "AngelX Official → India's #1 Trusted USDT Selling Platform",
   description:
-    "Log in to AngelX for instant USDT to INR conversions at top rates. Fast processing, secure payouts, reliable support—quickly access your account and sell crypto easily.",
+    "Log in to AngelX for converting USDT-to-INR and get the best price instantly. Quick account access, user friendly crypto selling, fast processing and secured payouts.",
   keywords: [
     "angelx usdt price",
     "angelx crypto",
@@ -12,7 +12,7 @@ export const metadata = {
     "angelx exchange",
   ],
   alternates: {
-    canonical: "https://www.angelx.ind.in/login",
+    canonical: "https://www.angelx.com.in/login",
   },
   robots: {
     index: true,
@@ -31,7 +31,7 @@ export default function LoginLayout({ children }) {
       <head>
         <meta
           name="description"
-          content="Log in to AngelX for instant USDT to INR conversions at top rates. Fast processing, secure payouts, reliable support—quickly access your account and sell crypto easily."
+          content="Log in to AngelX for converting USDT-to-INR and get the best price instantly. Quick account access, user friendly crypto selling, fast processing and secured payouts."
         />
       </head>
       {children}
