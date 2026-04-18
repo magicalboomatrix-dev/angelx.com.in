@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-//import { Link } from "react-router-dom";
 
 export default function FAQ() {
-	
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -24,7 +22,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 0 ? "active" : ""}`}
                 onClick={() => toggleFAQ(0)}
               >
-                <span className="sr">01.</span> What is AngelX, and how does it handle USDT to INR exchanges?
+                <span className="sr">01.</span> What is AngelX and how does it work for USDT to INR exchange?
               </div>
               <div
                 className="answercont"
@@ -35,7 +33,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                  AngelX is a reliable India-based crypto exchange app launched in 2021, focused on quick USDT-to-INR swaps without any KYC hassle. Just download the AngelX APK, log in using your phone number, send USDT over TRC20, BEP20, or ERC20 networks, and receive INR in your Indian bank account within 30 minutes.
+                  AngelX is a trusted India-based crypto exchange app founded in 2021, specializing in instant USDT to INR conversions without KYC. Download the AngelX Apk, sign in with your mobile number, deposit USDT via TRC20/BEP20/ERC20, and get INR payouts to any Indian bank in 30 minutes.
                 </div>
               </div>
             </div>
@@ -46,7 +44,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 1 ? "active" : ""}`}
                 onClick={() => toggleFAQ(1)}
               >
-                <span className="sr">02.</span> Can I exchange USDT for INR on AngelX without KYC?
+                <span className="sr">02.</span> Can I sell USDT for INR on AngelX without KYC?
               </div>
               <div
                 className="answercont"
@@ -57,7 +55,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                  Absolutely—AngelX skips KYC entirely for USDT-to-INR trades. No PAN, Aadhaar, or documents required. 
+                  Right—AngelX does not perform KYC for any type of USDT-to-INR trade. No PAN, Aadhaar or documents needed.
                 </div>
               </div>
             </div>
@@ -68,7 +66,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 2 ? "active" : ""}`}
                 onClick={() => toggleFAQ(2)}
               >
-                <span className="sr">03.</span> What are AngelX's top USDT rates?
+                <span className="sr">03.</span> What are the best USDT rates on AngelX?
               </div>
               <div
                 className="answercont"
@@ -79,7 +77,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                 AngelX delivers superior USDT rates above market averages for bigger INR returns.
+AngelX provides premium USDT rates above market levels for maximum INR payouts. Check live, transparent USDT pricing in the app, sourced from Binance and WazirX, with real-time data for TRC20, BEP20, and ERC20 networks—no hidden fees.
                 </div>
               </div>
             </div>
@@ -90,7 +88,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 3 ? "active" : ""}`}
                 onClick={() => toggleFAQ(3)}
               >
-                <span className="sr">04.</span> How fast are USDT deposits and INR withdrawals on AngelX?
+                <span className="sr">04.</span>  How long does it take to deposit USDT and withdraw INR on AngelX?
               </div>
               <div
                 className="answercont"
@@ -101,7 +99,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-					Deposits to your USDT wallet (via TRC20, BEP20, or ERC20) confirm in just 1-2 minutes. Once you place a sell order, INR hits your Indian bank via IMPS or RTGS in about 30 minutes—way quicker than most platforms.
+					Deposits into your USDT wallet (a TRC20, BEP20 or ERC20 one) are confirmed super quickly in only 1-2 minutes. Your sell order now or INR is credited to your Indian bank instantaneously in 30 min via IMPS or RTGS which are relatively faster than the most platforms.
                 </div>
               </div>
             </div>
@@ -112,7 +110,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 4 ? "active" : ""}`}
                 onClick={() => toggleFAQ(4)}
               >
-                <span className="sr">05.</span> Is the AngelX Apk secure and free?
+                <span className="sr">05.</span> Is AngelX Apk safe and free to download?
 
               </div>
               <div
@@ -124,7 +122,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                  Yes, the AngelX Apk is completely free, secure, and auto-updates for peace of mind. 
+                  Certainly, the AngelX Apk is 100% free and safe with auto-update. Since 2021, thousands of crypto users have relied upon it for some anonymous USDT to INR swaps and real-time portfolio tracking around the clock- without charges or risking privacy.
                 </div>
               </div>
             </div>
@@ -134,8 +132,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 5 ? "active" : ""}`}
                 onClick={() => toggleFAQ(5)}
               >
-                <span className="sr">06.</span> What bank accounts work for AngelX INR withdrawals?
-
+                <span className="sr">06.</span> Which bank accounts can I link for AngelX INR payouts?
               </div>
               <div
                 className="answercont"
@@ -146,7 +143,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                   Connect any Indian bank account—personal or even rented—without any verification.
+                  Link any Indian bank account (yours or even rental) on AngelX—no verification required.
                 </div>
               </div>
             </div>
@@ -156,7 +153,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 6 ? "active" : ""}`}
                 onClick={() => toggleFAQ(6)}
               >
-                <span className="sr">07.</span> Does AngelX accept all USDT networks?
+                <span className="sr">07.</span> Does AngelX support all USDT networks for deposits?
 
               </div>
               <div
@@ -168,7 +165,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">
-                  Yes, it supports TRC20, BEP20, ERC20, and others for effortless deposits from any wallet.
+                  Yes, AngelX handles TRC20, BEP20, ERC20, and more for seamless USDT deposits from any wallet. Approvals are instant (1-2 minutes), making it the best crypto exchange for Indians converting stablecoins to INR.
                 </div>
               </div>
             </div>
@@ -178,7 +175,7 @@ export default function FAQ() {
                 className={`question ${activeIndex === 7 ? "active" : ""}`}
                 onClick={() => toggleFAQ(7)}
               >
-                <span className="sr">08.</span> How do I access 24/7 support on AngelX for USDT-to-INR queries?
+                <span className="sr">08.</span> How can I get 24/7 support for AngelX USDT to INR issues?
 
               </div>
               <div
@@ -190,8 +187,7 @@ export default function FAQ() {
                 }}
               >
                 <div className="answer">                  
- AngelX offers round-the-clock live chat and phone support from real agents. Track transactions in-app, grab instant statements, or reach out anytime for help with rates, deposits, or withdrawals.
-
+AngelX offers round-the-clock live chat and phone support from real agents. Track transactions in-app, grab instant statements, or reach out anytime for help with rates, deposits, or withdrawals.
                 </div>
               </div>
             </div>
@@ -206,4 +202,3 @@ export default function FAQ() {
     </section>
   );
 }
-
