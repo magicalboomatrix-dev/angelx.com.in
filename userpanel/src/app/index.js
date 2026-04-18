@@ -189,7 +189,7 @@ const reloadDataFun = async () => {
 					  <div className="priceref">
 						<p>
 						  Automatic refresh after{" "}
-						  <span className="ref">
+						  <span className="ref" style={{color:"orange"}}>
 							{timeLeft}s
 						  </span>
 						</p>
@@ -412,32 +412,7 @@ const reloadDataFun = async () => {
             <h4>$0.0445532</h4>
           </td>
         </tr>
-        <tr>
-          <td>
-            <div className="dflex">
-              <div className="icon">
-                <Image                
-                src="/images/eos.png"
-                alt="EOS"
-                width={35}
-                height={35}
-                priority
-                /> 
-                
-              </div>
-              <div className="info">
-                <h3>EOS</h3>
-                <p>+0.05%</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h4>$43,656,343.0</h4>
-          </td>
-          <td>
-            <h4>$1.0005786</h4>
-          </td>
-        </tr>
+
         <tr>
           <td>
             <div className="dflex">
