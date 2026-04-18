@@ -3546,6 +3546,20 @@ button.tab.active img.y-icon {
     display: block;
 }
 
+section.section-3 .price-calc .reload-btn {
+    position: absolute;
+    top: 10px;
+    right: 13px;
+}
+section.section-3 .price-calc .reload-btn button {
+    border: 0;
+    background: transparent;
+    outline: none;
+}
+section.section-3 .price-calc .reload-btn img {
+    max-width: 20px;
+}
+
 .preloader img {
     max-width: 24px;
     margin: auto;
