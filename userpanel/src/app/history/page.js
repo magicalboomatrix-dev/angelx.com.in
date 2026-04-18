@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import Footer from "../components/footer";
 import { useRouter } from "next/navigation";
 import { isTokenExpired, refreshToken } from "../utils/auth";
 import { useToast } from "../components/ToastProvider";
 
-export default function DemoPage() {
+function HistoryContent() {
   const router = useRouter();
   const { showToast } = useToast();
   const [history, setHistory] = useState([]);
@@ -401,5 +401,13 @@ export default function DemoPage() {
     }
       `}</style>
     </div>
+  );
+}
+
+export default function HistoryPage() {
+  return (
+    <Suspense fallback={<div style={{ textAlign: 'center', padding: '40px 0' }}>Loading...</div>}>
+      <HistoryContent />
+    </Suspense>
   );
 }

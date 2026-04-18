@@ -78,7 +78,13 @@ export function ToastProvider({ children }) {
 export function useToast() {
   const context = useContext(ToastContext);
   if (!context) {
-    throw new Error('useToast must be used within ToastProvider');
+    // Return no-op function when outside ToastProvider to prevent crashes during SSR/hydration
+    return {
+      showToast: () => {
+        // eslint-disable-next-line no-console
+        console.warn('showToast called outside ToastProvider - toast will not display');
+      }
+    };
   }
   return context;
 }

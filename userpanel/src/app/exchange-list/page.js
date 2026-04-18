@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import Footer from "../components/footer";
 import { useRouter } from "next/navigation";
@@ -35,7 +35,7 @@ function getStatusClass(status) {
   return "";
 }
 
-export default function exchangeListPage() {
+function ExchangeListContent() {
   const router = useRouter();
   const { showToast } = useToast();
   const [history, setHistory] = useState([]);
@@ -411,5 +411,13 @@ section.section-1 {
 }
       `}</style>
     </div>
+  );
+}
+
+export default function ExchangeListPage() {
+  return (
+    <Suspense fallback={<div style={{ textAlign: 'center', padding: '40px 0' }}>Loading...</div>}>
+      <ExchangeListContent />
+    </Suspense>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import Footer from "../components/footer";
 import { useRouter } from "next/navigation";
@@ -38,7 +38,7 @@ function getDisplayNetwork(withdrawal) {
   return withdrawal.currency === 'PAYX' ? 'PAYX' : (withdrawal.network || 'TRC20');
 }
 
-export default function WithdrawHistoryPage() {
+function WithdrawHistoryContent() {
   const router = useRouter();
   const { showToast } = useToast();
   const [activeTab, setActiveTab] = useState("USDT");
@@ -547,5 +547,13 @@ img.icon {}
 }
       `}</style>
     </div>
+  );
+}
+
+export default function WithdrawHistoryPage() {
+  return (
+    <Suspense fallback={<div style={{ textAlign: 'center', padding: '40px 0' }}>Loading...</div>}>
+      <WithdrawHistoryContent />
+    </Suspense>
   );
 }
