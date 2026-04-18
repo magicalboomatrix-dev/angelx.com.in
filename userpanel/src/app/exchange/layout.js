@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "AngelX → Your USDT-to-INR Exchange Needs, One App!",
+  title: "AngelX Crypto Apk → USDT selling Platform",
   description:
-             "Fast-track USDT-to-INR conversions on AngelX: Best market rates, robust security, quick processing. Reliable team ready—access account, sell crypto now!",
+             "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
   keywords: [
     "angelx usdt price",
     "angelx usdt",
@@ -13,7 +13,7 @@ export const metadata = {
     "angelx exchange",
   ],
   alternates: {
-    canonical: "https://www.angelx.ind.in/exchange",
+    canonical: "https://www.angelx.com.in/exchange",
   },
   robots: {
     index: true,
@@ -44,28 +44,28 @@ export const metadata = {
   publisher: "AngelX",
   openGraph: {
     type: "website",
-    title: "AngelX → Your USDT-to-INR Exchange Needs, One App!",
+    title: "AngelX Crypto Apk → USDT selling Platform",
     description:
-      "Fast-track USDT-to-INR conversions on AngelX: Best market rates, robust security, quick processing. Reliable team ready—access account, sell crypto now!.",
-    url: "https://www.angelx.ind.in/exchange",
+      "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
+    url: "https://www.angelx.com.in/exchange",
     siteName: "AngelX",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.angelx.ind.in/images/logo-icon.png",
+        url: "https://www.angelx.com.in/images/logo-icon.png",
         width: 1200,
         height: 630,
-        alt: "AngelX → Your USDT-to-INR Exchange Needs, One App!",
+        alt: "AngelX USDT Exchange Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AngelX → Your USDT-to-INR Exchange Needs, One App!",
+    title: "AngelX Crypto Apk → USDT selling Platform",
     description:
-      "Fast-track USDT-to-INR conversions on AngelX: Best market rates, robust security, quick processing. Reliable team ready—access account, sell crypto now!.",
+      "Exchange USDT-to-INR instantly on AngelX with - High rates - Fast processing - Immediate payouts - Strong security - Reliable support Crypto selling made easy, to ensure smooth trades.",
     site: "@AngelX",
-    images: ["https://www.angelx.ind.in/images/logo-icon.png"],
+    images: ["https://www.angelx.com.in/images/logo-icon.png"],
   },
 };
 
