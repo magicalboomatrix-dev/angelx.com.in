@@ -14,6 +14,15 @@ export default function Index() {
   const [rate, setRate] = useState(null);
   const [supportLink, setSupportLink] = useState(null);
 
+const [refreshKey, setRefreshKey] = useState(false);
+const [refreshdata, setrefreshData] = useState("Initial Data");	
+const reloadDataFun = async () => {
+    setRefreshKey(true);
+    await new Promise(resolve => setTimeout(resolve, 700));
+    setrefreshData("Updated Data " + new Date().toLocaleTimeString());
+    setRefreshKey(false);
+};
+	
   useEffect(() => {
     setMounted(true);
     const timer = setTimeout(() => {
@@ -238,6 +247,7 @@ export default function Index() {
       <h2>Platform price</h2>
     </div>
     <div className="price-calc">
+	  <button onClick={reloadDataFun}><img src="/images/reaload-btn.png" alt="" /></button>
       <div className="priceref">
         <p>
           Automatic refresh after{" "}
@@ -247,12 +257,29 @@ export default function Index() {
         </p>
       </div>
       <div className="reff-price">
-        <div className="base-price">
-          <h4>
-            {rate ?? '-'} <span>Base</span>
-          </h4>
-        </div>
-        <p className="onepriceex">1 USDT = ₹{rate ?? '-'}</p>
+        {refreshKey ? (
+		  <div className="preloader">
+		  <Image 
+            src="/images/loading.webp"
+            alt="loader"
+            width={30}
+            height={30}
+            priority
+          />
+		  </div>
+		) : (
+		  <>
+			<div className="base-price">
+			  <h4>
+				{rate ?? '-'} <span>Base</span>
+			  </h4>
+			</div>
+
+			<p className="onepriceex">
+			  1 USDT = ₹{rate ?? '-'}
+			</p>
+		  </>
+		)}
       </div>
     </div>
   </div>
