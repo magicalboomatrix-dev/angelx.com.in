@@ -24,6 +24,15 @@ export default function Exchange() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [refreshKey, setRefreshKey] = useState(false);
+  const [refreshdata, setrefreshData] = useState("Initial Data");	
+  const reloadDataFun = async () => {
+      setRefreshKey(true);
+      await new Promise(resolve => setTimeout(resolve, 700));
+      setrefreshData("Updated Data " + new Date().toLocaleTimeString());
+      setRefreshKey(false);
+  };
+
   // Prevent body scroll when popup is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
@@ -182,13 +191,29 @@ export default function Exchange() {
                 </div>
 
                 <div className="reff-price">
-                  <div className="base-price">
-                    <h4>
-                      {rate ?? '-'} <span>Base</span>
-                    </h4>
-                  </div>
-
-                  <p className="onepriceex">1 USDT = ₹{rate ?? '-'}</p>
+                  {refreshKey ? (
+        					  <div className="preloader preloaderh">
+        					  <Image 
+        						src="/images/loading.webp"
+        						alt="loader"
+        						width={30}
+        						height={30}
+        						priority
+        					  />
+        					  </div>
+        					) : (
+        					  <>
+        						<div className="base-price">
+        						  <h4>
+        							{rate ?? '-'} <span>Base</span>
+        						  </h4>
+        						</div>
+        
+        						<p className="onepriceex">
+        						  1 USDT = ₹{rate ?? '-'}
+        						</p>
+        					  </>
+        					)}
 
                   <div className="pricerefBx">
                     <table width="100%">
