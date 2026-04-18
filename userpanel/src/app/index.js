@@ -391,8 +391,8 @@ const reloadDataFun = async () => {
             <div className="dflex">
               <div className="icon">
                 <Image                
-                src="/images/matic.png"
-                alt="Eos"
+                src="/images/eos.png"
+                alt="EOS"
                 width={35}
                 height={35}
                 priority
@@ -400,16 +400,16 @@ const reloadDataFun = async () => {
                 
               </div>
               <div className="info">
-                <h3>Eos</h3>
-                <p>+2.14%</p>
+                <h3>EOS</h3>
+                <p>+0.05%</p>
               </div>
             </div>
           </td>
           <td>
-            <h4>$45,32,78.0</h4>
+            <h4>$43,656,343.0</h4>
           </td>
           <td>
-            <h4>$0.0445532</h4>
+            <h4>$1.0005786</h4>
           </td>
         </tr>
 
