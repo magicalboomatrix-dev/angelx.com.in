@@ -156,7 +156,7 @@ const reloadDataFun = async () => {
             <section className="section-1 hm-section-1">
             <div className="image">
                 <Image                
-                src="/images/welcome-banner.png"
+                src="/images/welcome-banner1.png"
                 alt="welcome to angelx"
                 width={339}
                 height={109}
