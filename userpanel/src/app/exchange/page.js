@@ -180,7 +180,10 @@ export default function Exchange() {
               <div className="price-calc">
               <div className="reload-btn">
                   {/*<button onClick={fetchRate}><img src="/images/reaload-btn.png" alt="" /></button>*/}
-              <button onClick={() => window.location.reload()}><img src="/images/reaload-btn.png" alt="" /></button>
+              <div className="reload-btn">
+            <button onClick={reloadDataFun}><img src="/images/reaload-btn.png" alt="" /></button>
+             
+        </div>
               </div>
               
                 <div className="priceref">
