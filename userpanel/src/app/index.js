@@ -247,7 +247,10 @@ const reloadDataFun = async () => {
       <h2>Platform price</h2>
     </div>
     <div className="price-calc">
-	  <button onClick={reloadDataFun}><img src="/images/reaload-btn.png" alt="" /></button>
+	  <div className="reload-btn">
+            <button onClick={reloadDataFun}><img src="/images/reaload-btn.png" alt="" /></button>             
+        </div>
+		  
       <div className="priceref">
         <p>
           Automatic refresh after{" "}
