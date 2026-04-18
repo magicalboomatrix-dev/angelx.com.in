@@ -164,6 +164,69 @@ const reloadDataFun = async () => {
                 />
                 </div>
             </section>
+			
+			<section className="section-3">
+				<div className="screenshot-wrapper">
+				  {/*<div className="image">
+					<Image 
+					  alt="AngelX Logo" 
+					  className="screenshot-img" 
+					  src="/images/hm-mob-img.jpg" 
+					  width={360} // Estimated width based on common mobile screenshot dimensions. Verify actual image dimensions.
+					  height={640} // Estimated height based on common mobile screenshot dimensions. Verify actual image dimensions.
+					  priority
+					/>                  
+				  </div>*/}
+				  <div className="overlay-box">
+					<div className="overlay-header">
+					  <h2>Platform price</h2>
+					</div>
+					<div className="price-calc">
+					  <div className="reload-btn">
+							<button onClick={reloadDataFun}><img src="/images/reaload-btn.png" alt="" /></button>             
+						</div>
+						  
+					  <div className="priceref">
+						<p>
+						  Automatic refresh after{" "}
+						  <span className="ref">
+							{timeLeft}s
+						  </span>
+						</p>
+					  </div>
+					  <div className="reff-price">
+						{refreshKey ? (
+						  <div className="preloader">
+						  <Image 
+							src="/images/loading.webp"
+							alt="loader"
+							width={30}
+							height={30}
+							priority
+						  />
+						  </div>
+						) : (
+						  <>
+							<div className="base-price">
+							  <h4>
+								{rate ?? '-'} <span>Base</span>
+							  </h4>
+							</div>
+
+							<p className="onepriceex">
+							  1 USDT = ₹{rate ?? '-'}
+							</p>
+						  </>
+						)}
+					  </div>
+					</div>
+				  </div>
+				</div>
+					
+					{/* <p className="title">
+					  <b>AngelX official screenshot</b>
+					</p> */}
+				  </section>
 
             <section className="section-2 hm-section-2">
                 <div className="rw">
@@ -230,68 +293,7 @@ const reloadDataFun = async () => {
             </section>
 
             <>
-  <section className="section-3">
-<div className="screenshot-wrapper">
-  <div className="image">
-    <Image 
-      alt="AngelX Logo" 
-      className="screenshot-img" 
-      src="/images/hm-mob-img.jpg" 
-      width={360} // Estimated width based on common mobile screenshot dimensions. Verify actual image dimensions.
-      height={640} // Estimated height based on common mobile screenshot dimensions. Verify actual image dimensions.
-      priority
-    />                  
-  </div>
-  <div className="overlay-box">
-    <div className="overlay-header">
-      <h2>Platform price</h2>
-    </div>
-    <div className="price-calc">
-	  <div className="reload-btn">
-            <button onClick={reloadDataFun}><img src="/images/reaload-btn.png" alt="" /></button>             
-        </div>
-		  
-      <div className="priceref">
-        <p>
-          Automatic refresh after{" "}
-          <span className="ref">
-            {timeLeft}s
-          </span>
-        </p>
-      </div>
-      <div className="reff-price">
-        {refreshKey ? (
-		  <div className="preloader">
-		  <Image 
-            src="/images/loading.webp"
-            alt="loader"
-            width={30}
-            height={30}
-            priority
-          />
-		  </div>
-		) : (
-		  <>
-			<div className="base-price">
-			  <h4>
-				{rate ?? '-'} <span>Base</span>
-			  </h4>
-			</div>
-
-			<p className="onepriceex">
-			  1 USDT = ₹{rate ?? '-'}
-			</p>
-		  </>
-		)}
-      </div>
-    </div>
-  </div>
-</div>
-    
-    <p className="title">
-      <b>AngelX official screenshot</b>
-    </p>
-  </section>
+  
   <section className="section-4">
     <h3 className="title">Market list</h3>
     <table>
