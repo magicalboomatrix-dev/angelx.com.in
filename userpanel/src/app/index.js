@@ -974,8 +974,7 @@ export default function Index() {
 		</section> 
 
 
-					
-</>
+
 
 	
 
@@ -983,10 +982,7 @@ export default function Index() {
     
 <Footer></Footer>
      </div>   
-    </div>
 
-  );
-}
-
+     </div>   
   );
 }
