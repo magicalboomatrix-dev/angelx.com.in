@@ -2872,12 +2872,21 @@ section.section-3 .screenshot-wrapper img.screenshot-img {
 	font-family: "Manrope", sans-serif;
 }
 
-.screenshot-wrapper .overlay-box {
+/*.screenshot-wrapper .overlay-box {
     margin-bottom: 16px;
     padding: 16px 22px;
 	left: 0;
     position: absolute;
     top: 48%;
+    width: 100%;
+}*/
+
+.screenshot-wrapper .overlay-box {
+    margin-bottom: 0;
+    padding: 16px 10px 10px 10px;
+    left: 0;
+    position: relative;
+    top: auto;
     width: 100%;
 }
 
