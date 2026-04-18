@@ -1,4 +1,4 @@
-# robots.txt for https://www.angelx.ind.in/
+# robots.txt for https://www.angelx.com.in/
 
 User-agent: *
 Disallow: /home
@@ -13,6 +13,11 @@ Disallow: /sell-usdt
 Disallow: /bank
 Disallow: /bind-bank-card
 Disallow: /history
+Disallow: /exchange-list
+Disallow: /exchange-detail
+Disallow: /withdraw-history
+Disallow: /withdraw-detail
+Disallow: /reward-list
 Disallow: /statements
 Disallow: /invite
 
@@ -20,4 +25,4 @@ Disallow: /invite
 Allow: /
 
 # Sitemap
-Sitemap: https://www.angelx.ind.in/sitemap.xml
+Sitemap: https://www.angelx.com.in/sitemap.xml
