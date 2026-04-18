@@ -26,6 +26,9 @@ export default function AddBank() {
 
   const selectedBank = banks.find((b) => b.id === selectedBankId);
 
+  // Get current rate based on active payment method
+  const rate = activeTab === "CMD" ? rates.cmdRate : activeTab === "IMPS" ? rates.impsRate : rates.defaultRate;
+
   // Define fetch functions with useCallback before useEffect
   const fetchLimits = useCallback(async () => {
     try {
