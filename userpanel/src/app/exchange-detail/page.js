@@ -146,12 +146,12 @@ function ExchangeDetailPage() {
 
   // Step circles: submitted, processing, final
   const step1Class = "success";                                      // always submitted
-  const step2Class = isPending ? "success grey" : isSuccess ? "success" : "success";
-  const step3Class = isPending ? "success grey" : isSuccess ? "success" : "failed";
+  const step2Class = isPending ? "pending" : isSuccess ? "success" : "success";
+  const step3Class = isPending ? "pending" : isSuccess ? "success" : "failed";
 
   const step1Icon = "✓";
-  const step2Icon = "✓";
-  const step3Icon = isPending ? "✓" : isSuccess ? "✓" : "✕";
+  const step2Icon = isPending ? "…" : "✓";
+  const step3Icon = isPending ? "…" : isSuccess ? "✓" : "✕";
 
   const finalLabel = isPending ? "Pending" : isSuccess ? "Completed" : isFailed ? "Failed" : (tx?.status ? tx.status.charAt(0).toUpperCase() + tx.status.slice(1).toLowerCase() : "");
 
@@ -552,10 +552,6 @@ function ExchangeDetailPage() {
         background: #dc3545;
     }
 
-    .circle.success.grey {
-        background: #b5b5b5;
-    }
-
     .status-label {
         margin-top: 8px;
         font-size: 14px;
@@ -619,7 +615,7 @@ function ExchangeDetailPage() {
 .containerinner .status-line {
     padding: 20px 30px;
     background: #fff;
-    margin: 0 0 10px 0;
+    margin: 0;
 }
 
 .containerinner .status {}
