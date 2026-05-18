@@ -61,7 +61,7 @@ function ExchangeDetailPage() {
               setLoading(false);
               return;
             }
-          } catch {}
+          } catch { }
         }
 
         if (isTokenExpired(token)) {
@@ -96,10 +96,10 @@ function ExchangeDetailPage() {
         );
         const normalizedTx = found
           ? {
-              ...found,
-              address: found.accountNo || found.address,
-              reviewNote: found.adminRemark || found.reviewNote || found.description,
-            }
+            ...found,
+            address: found.accountNo || found.address,
+            reviewNote: found.adminRemark || found.reviewNote || found.description,
+          }
           : null;
         setTx(normalizedTx);
 
@@ -110,12 +110,12 @@ function ExchangeDetailPage() {
           setBank(
             found
               ? {
-                  ...matchedBank,
-                  accountNo: found.accountNo || matchedBank?.accountNo,
-                  ifsc: found.ifsc || matchedBank?.ifsc,
-                  payeeName: found.payeeName || matchedBank?.payeeName,
-                  bankName: found.bankName || matchedBank?.bankName,
-                }
+                ...matchedBank,
+                accountNo: found.accountNo || matchedBank?.accountNo,
+                ifsc: found.ifsc || matchedBank?.ifsc,
+                payeeName: found.payeeName || matchedBank?.payeeName,
+                bankName: found.bankName || matchedBank?.bankName,
+              }
               : matchedBank || null
           );
         }
@@ -146,12 +146,12 @@ function ExchangeDetailPage() {
 
   // Step circles: submitted, processing, final
   const step1Class = "success";                                      // always submitted
-  const step2Class = isPending ? "pending" : isSuccess ? "success" : "success";
-  const step3Class = isPending ? "pending" : isSuccess ? "success" : "failed";
+  const step2Class = isPending ? "success grey" : isSuccess ? "success" : "success";
+  const step3Class = isPending ? "success grey" : isSuccess ? "success" : "failed";
 
   const step1Icon = "✓";
-  const step2Icon = isPending ? "…" : "✓";
-  const step3Icon = isPending ? "…" : isSuccess ? "✓" : "✕";
+  const step2Icon = "✓";
+  const step3Icon = isPending ? "✓" : isSuccess ? "✓" : "✕";
 
   const finalLabel = isPending ? "Pending" : isSuccess ? "Completed" : isFailed ? "Failed" : (tx?.status ? tx.status.charAt(0).toUpperCase() + tx.status.slice(1).toLowerCase() : "");
 
@@ -165,130 +165,130 @@ function ExchangeDetailPage() {
   const inrAmount = tx ? Math.round(tx.amount * activeRate) : 0;
 
   return (
-    <div className="app-container page-wrappers exchange-detail-page"  style={{backgroundColor:'#fff'}}>
+    <div className="app-container page-wrappers exchange-detail-page" style={{ backgroundColor: '#fff' }}>
       <main className="content-wrapper">
         <div className="brdc">
           <div className="back-btn-container">
-            <Link href="/exchange-list" className="back-link" style={{position: 'relative',zIndex: '999'}}>
-          <img src="/images/back-btn.png" alt="back" style={{marginLeft: '0'}} />
-        </Link>
+            <Link href="/exchange-list" className="back-link" style={{ position: 'relative', zIndex: '999' }}>
+              <img src="/images/back-btn.png" alt="back" style={{ marginLeft: '0' }} />
+            </Link>
           </div>
           <h3 className="header-title">Exchange Detail</h3>
         </div>
 
         <section className="section-1" style={{ background: "#fff" }}>
-    
-            <div className="history-list">
 
-              {loading && (
-                <div className="empty-state">
-                  <p style={{ color: "#999", fontSize: "14px" }}>Loading...</p>
+          <div className="history-list">
+
+            {loading && (
+              <div className="empty-state">
+                <p style={{ color: "#999", fontSize: "14px" }}>Loading...</p>
+              </div>
+            )}
+
+            {!loading && !tx && (
+              <div className="empty-state">
+                <p style={{ color: "#999", fontSize: "14px" }}>Transaction not found.</p>
+              </div>
+            )}
+
+            {!loading && tx && (
+              <div className="containerinner">
+
+                <div className="amount">
+                  <p>You will receive</p>
+                  <h1>₹{inrAmount.toLocaleString("en-IN")}</h1>
                 </div>
-              )}
 
-              {!loading && !tx && (
-                <div className="empty-state">
-                  <p style={{ color: "#999", fontSize: "14px" }}>Transaction not found.</p>
+                <div className="status-line">
+                  <div className="status">
+                    <div className={`circle ${step1Class}`}>{step1Icon}</div>
+                    <div className="status-label">Submitted</div>
+                    <div className="status-time">{formatDate(tx.createdAt)}</div>
+                  </div>
+
+                  <div className="status">
+                    <div className={`circle ${step2Class}`}>{step2Icon}</div>
+                  </div>
+
+                  <div className="status">
+                    <div className={`circle ${step3Class}`}>{step3Icon}</div>
+                    <div className="status-label">{finalLabel}</div>
+                    <div className="status-time">{tx.reviewedAt ? formatDate(tx.reviewedAt) : ""}</div>
+                  </div>
                 </div>
-              )}
 
-              {!loading && tx && (
-<div className="containerinner">
-    
-    <div className="amount">
-        <p>You will receive</p>
-        <h1>₹{inrAmount.toLocaleString("en-IN")}</h1>
-    </div>
+                {tx.network === "BANK" && (
+                  <div className="section">
+                    <h3>Payee information</h3>
 
-    <div className="status-line">
-        <div className="status">
-            <div className={`circle ${step1Class}`}>{step1Icon}</div>
-            <div className="status-label">Submitted</div>
-            <div className="status-time">{formatDate(tx.createdAt)}</div>
-        </div>
+                    <div className="row">
+                      <div className="label">Account No</div>
+                      <div className="value">{tx.address || "—"}</div>
+                    </div>
 
-        <div className="status">
-            <div className={`circle ${step2Class}`}>{step2Icon}</div>
-        </div>
+                    <div className="row">
+                      <div className="label">IFSC / SWIFT</div>
+                      <div className="value">{bank?.ifsc || "—"}</div>
+                    </div>
 
-        <div className="status">
-            <div className={`circle ${step3Class}`}>{step3Icon}</div>
-            <div className="status-label">{finalLabel}</div>
-            <div className="status-time">{tx.reviewedAt ? formatDate(tx.reviewedAt) : ""}</div>
-        </div>
-    </div>
+                    <div className="row">
+                      <div className="label">Payee Name</div>
+                      <div className="value">{bank?.payeeName || "—"}</div>
+                    </div>
+                    <div className="row">
+                      <div className="label">Bank Name</div>
+                      <div className="value">{bank?.bankName || "—"}</div>
+                    </div>
+                  </div>
+                )}
 
-    {tx.network === "BANK" && (
-    <div className="section">
-        <h3>Payee information</h3>
+                <div className="section">
+                  <h3>Trade information</h3>
 
-        <div className="row">
-            <div className="label">Account No</div>
-            <div className="value">{tx.address || "—"}</div>
-        </div>
-
-        <div className="row">
-            <div className="label">IFSC / SWIFT</div>
-            <div className="value">{bank?.ifsc || "—"}</div>
-        </div>
-
-        <div className="row">
-            <div className="label">Payee Name</div>
-            <div className="value">{bank?.payeeName || "—"}</div>
-        </div>
-        <div className="row">
-            <div className="label">Bank Name</div>
-            <div className="value">{bank?.bankName || "—"}</div>
-        </div>
-    </div>
-    )}
-
-    <div className="section">
-        <h3>Trade information</h3>
-
-        <div className="row">
-            <div className="label">Trade no</div>
-            <div className="value">{tx.referenceId}</div>
-        </div>
-  	    {/* <div className="row">
+                  <div className="row">
+                    <div className="label">Trade no</div>
+                    <div className="value">{tx.referenceId}</div>
+                  </div>
+                  {/* <div className="row">
         <div className="label">Network</div>
         <div className="value">{tx.network === "BANK" ? "BANK Transfer" : tx.network}</div>
       </div> */}
-  	    {tx.paymentMethod && (
-  	    <div className="row">
-        <div className="label">Payment Method</div>
-        <div className="value">{tx.paymentMethod}</div>
-      </div>
-  	    )}
+                  {tx.paymentMethod && (
+                    <div className="row">
+                      <div className="label">Payment Method</div>
+                      <div className="value">{tx.paymentMethod}</div>
+                    </div>
+                  )}
 
-        <div className="row">
-            <div className="label">Trade detail</div>
-            <div className="value df-value">
-								<div className="badge-left">
-								<div className="badge-usdt">₮</div>
-								<span className="amount-bold"> {tx.amount}</span>
-								</div>
-								<div className="badge-mid">
-									<img src="/images/trade-icon.jpg" alt="icon" />
-								</div>
-								<div className="badge-ri">
-									<span>₹</span>{inrAmount.toLocaleString("en-IN")}
-								</div>
-							 </div>
-        </div>
+                  <div className="row">
+                    <div className="label">Trade detail</div>
+                    <div className="value df-value">
+                      <div className="badge-left">
+                        <div className="badge-usdt">₮</div>
+                        <span className="amount-bold"> {tx.amount}</span>
+                      </div>
+                      <div className="badge-mid">
+                        <img src="/images/trade-icon.jpg" alt="icon" />
+                      </div>
+                      <div className="badge-ri">
+                        <span>₹</span>{inrAmount.toLocaleString("en-IN")}
+                      </div>
+                    </div>
+                  </div>
 
-        <div className="row">
-            <div className="label">Remark</div>
-            <div className="value">{tx.reviewNote || tx.description || "—"}</div>
-        </div>
-    </div>
+                  <div className="row">
+                    <div className="label">Remark</div>
+                    <div className="value">{tx.reviewNote || tx.description || "—"}</div>
+                  </div>
+                </div>
 
-</div>
-              )}
+              </div>
+            )}
 
-             
-            </div>
-          
+
+          </div>
+
         </section>
 
         <Footer />
@@ -523,7 +523,7 @@ function ExchangeDetailPage() {
     height: 2px;
     background: #ddd;
     z-index: 0;
-    width: 52%;
+    width: 264px;
     margin: auto;
     }
 
@@ -533,8 +533,8 @@ function ExchangeDetailPage() {
     }
 
     .circle {
-        width: 26px;
-        height: 26px;
+        width: 28px;
+        height: 28px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -550,6 +550,10 @@ function ExchangeDetailPage() {
 
     .failed {
         background: #dc3545;
+    }
+
+    .circle.success.grey {
+        background: #b5b5b5;
     }
 
     .status-label {
